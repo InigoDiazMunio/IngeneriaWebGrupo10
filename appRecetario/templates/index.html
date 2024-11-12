@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block titulo %} Menú {% endblock %}
+
+{% block contenido %}
+    <div class="menu-items">
+        <div class="menu-item">
+        <a href="{% url 'list_tipos_plato' %}">
+            {% for tipo_plato in tipos_plato %}
+            {% if tipo_plato.id == 1 %}
+                <img src="{% static tipo_plato.imagen.name %}" alt="Tipos de Plato">
+            {% endif %}
+            {% endfor %}  
+            <p>Explora nuestros diferentes tipos de plato</p>
+        </a>
+        </div>
+        <div class="menu-item">
+            <a href="{% url 'list_recetas' %}">
+                {% for receta in recetas %}
+                {% if receta.id == 1 %}
+                    <img src="{% static receta.imagen.name %}" alt="Recetas">
+                {% endif %}
+                {% endfor %}  
+                <p>Descubre nuestras recetas destacadas</p>
+            </a>
+        </div>
+        <div class="menu-item">
+            <a href="{% url 'list_ingredientes' %}">
+                {% for ingrediente in ingredientes %}
+                {% if ingrediente.id == 1 %}
+                    <img src="{% static ingrediente.imagen.name %}" alt="Ingredientes">
+                {% endif %}
+                {% endfor %}  
+                <p>Conoce nuestros ingredientes frescos</p>
+            </a>
+        </div>
+    </div>
+
+    <div class="recetas-destacadas">
+        <h2>Recetas Destacadas</h2>
+        <div class="recetas-tipo-plato">
+            {% for tipo_plato in tipos_plato %}
+                <div class="menu-item">
+                    <h3>{{ tipo_plato.nombre }}</h3>
+                    {% for receta in recetas %}
+                        {% if receta.tipo_id == tipo_plato.id %}
+                            <a href="{% url 'detail_receta' receta.id %}">
+                                <div class="receta-item">
+                                    <img src="{% static receta.imagen.name %}" alt="{{ receta.nombre }}">
+                                    <p class="receta-nombre">{{ receta.nombre }}</p>
+                                    <p class="receta-precio">Precio: {{ receta.precio }}€</p>
+                                </div>
+                            </a>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="extras-container">
+        <div class="extras">
+            <h2>Entrantes</h2>
+            <ul>
+                {% for entrante in lista_entrantes %}
+                    <li class="extras-items">
+                        <div class="extras-info">
+                            <img src="{% static entrante.imagen.name %}" alt="{{ entrante.nombre }}" class="extras-imagen">
+                            <h3 class="extras-nombre">{{ entrante.nombre }}</h3>
+                            <p class="extras-descripcion">{{ entrante.descripcion }}</p>
+                            <p class="extra-precio">Precio: {{ entrante.precio }}€</p>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="extras">
+            <h2>Bebidas</h2>
+            <ul>
+                {% for bebida in lista_bebidas %}
+                    <li class="extras-items">
+                        <div class="extras-info">
+                            <img src="{% static bebida.imagen.name %}" alt="{{ bebida.nombre }}" class="extras-imagen">
+                            <h3 class="extras-nombre">{{ bebida.nombre }}</h3>
+                            <p class="extra-precio">Precio: {{ bebida.precio }}€</p>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+{% endblock %}
