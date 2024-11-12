@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block titulo %}Detalles del Ingrediente{% endblock %}
+
+{% block contenido %}
+<h2>{{ ingrediente.nombre }}</h2>
+<p><strong>Categoría:</strong> {{ ingrediente.categoria }}</p>
+
+<h3>Recetas que usan este ingrediente:</h3>
+<ul>
+    {% for receta in ingrediente.recetas.all %}
+    <li><a href="{% url 'detail_receta' receta.id %}">{{ receta.nombre }}</a></li>
+    {% empty %}
+    <li>No hay recetas con este ingrediente.</li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'list_ingredientes' %}">Volver a la lista de ingredientes</a>
+{% endblock %}

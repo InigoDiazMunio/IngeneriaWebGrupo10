@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block titulo %}Lista de Recetas{% endblock %}
+
+{% block contenido %}
+<h2>Recetas Disponibles</h2>
+<ul>
+    {% for receta in recetas %}
+    <li class="receta-item">
+        <a href="{% url 'detail_receta' receta.id %}">
+            <h3>{{ receta.nombre }}</h3>
+            <p>Tipo: {{ receta.tipo.nombre }}</p>
+            <p>{{ receta.descripcion }}</p>
+        </a>
+    </li>
+    {% empty %}
+    <li>No hay recetas disponibles.</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'index' %}">Volver al Inicio</a>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block titulo %}Tipos de Plato{% endblock %}
+
+{% block contenido %}
+<h2>Tipos de Plato</h2>
+<ul>
+    {% for tipo in tipos_plato %}
+    <li>
+        <a href="{% url 'detail_tipo_plato' tipo.id %}">
+            <h3>{{ tipo.nombre }}</h3>
+            <p>{{ tipo.descripcion }}</p>
+        </a>
+    </li>
+    {% empty %}
+    <li>No hay tipos de plato disponibles.</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'index' %}">Volver al Inicio</a>
+{% endblock %}
