@@ -1,13 +1,5 @@
-
 from django.db import models
-
-class Receta(models.Model):
-    nombre = models.CharField(max_length=100)
-    tipo = models.CharField(max_length=50)
-    ingredientes = models.TextField()
-
-    def __str__(self):
-        return self.nombre
+from django.utils import timezone
 
 class Ingrediente(models.Model):
     nombre = models.CharField(max_length=100)
@@ -19,6 +11,15 @@ class Ingrediente(models.Model):
 class TipoPlato(models.Model):
     nombre = models.CharField(max_length=100)
     descripcion = models.TextField()
+
+    def __str__(self):
+        return self.nombre
+
+class Receta(models.Model):
+    nombre = models.CharField(max_length=100)
+    tipo = models.ForeignKey(TipoPlato, on_delete=models.CASCADE)
+    ingredientes = models.ManyToManyField(Ingrediente, related_name='recetas')
+    descripcion = models.TextField(blank=True)
 
     def __str__(self):
         return self.nombre

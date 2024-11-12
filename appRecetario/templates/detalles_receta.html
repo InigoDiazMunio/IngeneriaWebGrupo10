@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block contenido %}
+<h2>Detalles de la Receta: {{ receta.nombre }}</h2>
+<p>Tipo: {{ receta.tipo.nombre }}</p>
+<p>Descripción: {{ receta.descripcion }}</p>
+
+<h3>Ingredientes</h3>
+<ul>
+    {% for ingrediente in ingredientes %}
+    <li>{{ ingrediente.nombre }} - Categoría: {{ ingrediente.categoria }}</li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'list_recetas' %}">Volver a recetas</a>
+{% endblock %}
