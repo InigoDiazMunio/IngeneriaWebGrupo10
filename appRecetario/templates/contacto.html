@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block extrastyle %}
+<link rel="stylesheet" href="{% static 'styleContacto.css' %}">
+{% endblock %}
+
+{% block titulo %}Contacto{% endblock %}
+
+{% block contenido %}
+<h2>Página de Contacto</h2>
+<form class="contacto-form">
+    <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+    </div>
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+    </div>
+    <div class="form-group">
+        <label for="mensaje">Mensaje:</label>
+        <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+    </div>
+    <button type="submit">Enviar</button>
+</form>
+
+<a href="{% url 'index' %}">Volver al Inicio</a>
+{% endblock %}

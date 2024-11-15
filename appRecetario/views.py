@@ -38,3 +38,7 @@ def index(request):
         'recetas': recetas,
         'ingredientes': ingredientes
     })
+
+def contacto(request):
+    return render(request, 'contacto.html')
+

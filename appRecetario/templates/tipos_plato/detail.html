@@ -1,4 +1,8 @@
 {% extends 'base.html' %}
+{% block extrastyle %}
+<link rel="stylesheet" href="{% static 'styleDetalles.css' %}">
+{% endblock %}
+
 {% block titulo %}Detalles del Tipo de Plato{% endblock %}
 
 {% block contenido %}
@@ -24,4 +28,5 @@
 </div>
 
 <a href="{% url 'list_tipos_plato' %}">Volver a la lista de Tipos de Plato</a>
+<a href="{% url 'index' %}">Volver al Inicio</a>
 {% endblock %}

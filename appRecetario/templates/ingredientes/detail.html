@@ -1,4 +1,8 @@
 {% extends 'base.html' %}
+{% block extrastyle %}
+<link rel="stylesheet" href="{% static 'styleDetalles.css' %}">
+{% endblock %}
+
 {% block titulo %}Detalles del Ingrediente{% endblock %}
 
 {% block contenido %}
@@ -24,4 +28,5 @@
 </div>
 
 <a href="{% url 'list_ingredientes' %}">Volver a la lista de Ingredientes</a>
+<a href="{% url 'index' %}">Volver al Inicio</a>
 {% endblock %}
