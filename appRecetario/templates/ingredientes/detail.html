@@ -5,14 +5,23 @@
 <h2>{{ ingrediente.nombre }}</h2>
 <p><strong>Categoría:</strong> {{ ingrediente.categoria }}</p>
 
-<h3>Recetas que usan este ingrediente:</h3>
-<ul>
-    {% for receta in ingrediente.recetas.all %}
-    <li><a href="{% url 'detail_receta' receta.id %}">{{ receta.nombre }}</a></li>
-    {% empty %}
-    <li>No hay recetas con este ingrediente.</li>
-    {% endfor %}
-</ul>
+<h3>Recetas que contienen este ingrediente:</h3>
+<div class="recetas-lista">
+    <ul>
+        {% for receta in ingrediente.recetas.all %}
+        <li class="receta-item">
+            <a href="{% url 'detail_receta' receta.id %}">
+                <div class="receta-info">
+                    <h3>{{ receta.nombre }}</h3>
+                    <p>Tipo de Plato: {{ receta.tipo.nombre }}</p>
+                </div>
+            </a>
+        </li>
+        {% empty %}
+        <li>No hay recetas que contengan este ingrediente.</li>
+        {% endfor %}
+    </ul>
+</div>
 
-<a href="{% url 'list_ingredientes' %}">Volver a la lista de ingredientes</a>
+<a href="{% url 'list_ingredientes' %}">Volver a la lista de Ingredientes</a>
 {% endblock %}

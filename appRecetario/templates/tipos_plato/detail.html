@@ -5,14 +5,23 @@
 <h2>{{ tipo_plato.nombre }}</h2>
 <p>{{ tipo_plato.descripcion }}</p>
 
-<h3>Recetas de este tipo:</h3>
-<ul>
-    {% for receta in tipo_plato.receta_set.all %}
-    <li><a href="{% url 'detail_receta' receta.id %}">{{ receta.nombre }}</a></li>
-    {% empty %}
-    <li>No hay recetas para este tipo de plato.</li>
-    {% endfor %}
-</ul>
+<h3>Recetas de este Tipo de Plato:</h3>
+<div class="recetas-lista">
+    <ul>
+        {% for receta in tipo_plato.receta_set.all %}
+        <li class="receta-item">
+            <a href="{% url 'detail_receta' receta.id %}">
+                <div class="receta-info">
+                    <h3>{{ receta.nombre }}</h3>
+                    <p>Descripción: {{ receta.descripcion }}</p>
+                </div>
+            </a>
+        </li>
+        {% empty %}
+        <li>No hay recetas para este tipo de plato.</li>
+        {% endfor %}
+    </ul>
+</div>
 
-<a href="{% url 'list_tipos_plato' %}">Volver a la lista de tipos de plato</a>
+<a href="{% url 'list_tipos_plato' %}">Volver a la lista de Tipos de Plato</a>
 {% endblock %}

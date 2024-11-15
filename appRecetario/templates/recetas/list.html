@@ -7,11 +7,15 @@
     <ul>
         {% for receta in recetas %}
         <li class="receta-item">
-            <a href="{% url 'detail_receta' receta.id %}">
+            <a href="{% url 'detail_receta' receta_id=receta.id %}">
                 <div class="receta-info">
-                    <img src="{% static receta.imagen.name %}" alt="{{ receta.nombre }}" class="receta-imagen">
                     <h3>{{ receta.nombre }}</h3>
                     <p>Tipo de Plato: {{ receta.tipo.nombre }}</p>
+                    <p>Ingredientes: 
+                        {% for ingrediente in receta.ingredientes.all %}
+                            {{ ingrediente.nombre }}{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    </p>
                 </div>
             </a>
         </li>

@@ -3,17 +3,21 @@
 
 {% block contenido %}
 <h2>Tipos de Plato</h2>
-<ul>
-    {% for tipo in tipos_plato %}
-    <li>
-        <a href="{% url 'detail_tipo_plato' tipo.id %}">
-            <h3>{{ tipo.nombre }}</h3>
-            <p>{{ tipo.descripcion }}</p>
-        </a>
-    </li>
-    {% empty %}
-    <li>No hay tipos de plato disponibles.</li>
-    {% endfor %}
-</ul>
+<div class="tipos-plato-lista">
+    <ul>
+        {% for tipo_plato in tipos_plato %}
+        <li class="tipo-plato-item">
+            <a href="{% url 'detail_tipo_plato' tipo_plato.id %}">
+                <div class="tipo-plato-info">
+                    <h3>{{ tipo_plato.nombre }}</h3>
+                    <p>{{ tipo_plato.descripcion }}</p>
+                </div>
+            </a>
+        </li>
+        {% empty %}
+        <li>No hay tipos de plato disponibles.</li>
+        {% endfor %}
+    </ul>
+</div>
 <a href="{% url 'index' %}">Volver al Inicio</a>
 {% endblock %}

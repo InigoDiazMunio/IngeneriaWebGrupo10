@@ -3,12 +3,13 @@
 
 {% block contenido %}
 <h2>{{ receta.nombre }}</h2>
+
 <p><strong>Tipo de plato:</strong> {{ receta.tipo.nombre }}</p>
 <p><strong>Descripción:</strong> {{ receta.descripcion }}</p>
 
 <h3>Ingredientes:</h3>
 <ul>
-    {% for ingrediente in ingredientes %}
+    {% for ingrediente in receta.ingredientes.all %}
     <li>{{ ingrediente.nombre }} ({{ ingrediente.categoria }})</li>
     {% empty %}
     <li>No hay ingredientes asociados a esta receta.</li>
@@ -16,4 +17,5 @@
 </ul>
 
 <a href="{% url 'list_recetas' %}">Volver a la lista de recetas</a>
+<a href="{% url 'index' %}">Volver al Inicio</a>
 {% endblock %}
