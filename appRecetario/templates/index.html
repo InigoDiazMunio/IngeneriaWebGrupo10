@@ -3,6 +3,10 @@
 
 {% block titulo %} Menú {% endblock %}
 
+{% block extrastyle %}
+<link rel="stylesheet" href="{% static 'styleDetalles.css' %}">
+{% endblock %}
+
 {% block contenido %}
     <div class="menu-items">
         <!-- Tipos de Plato -->
@@ -43,7 +47,7 @@
                                 <div class="receta-item">
                                     <img src="{% static receta.imagen.name %}" alt="{{ receta.nombre }}">
                                     <p class="receta-nombre">{{ receta.nombre }}</p>
-                                    <p class="receta-precio">{{ receta.descripcion }}</p>
+                                    <p class="receta-descripcion">{{ receta.descripcion }}</p>
                                 </div>
                             </a>
                         {% endif %}
@@ -51,6 +55,12 @@
                 </div>
             {% endfor %}
         </div>
+    </div>
+
+    <!-- Sección de Contacto -->
+    <div class="contacto-seccion">
+        <h2>Contáctanos</h2>
+        <p>Si tienes alguna pregunta o necesitas más información, visita nuestra página de <a href="{% url 'contacto' %}">Contacto</a>.</p>
     </div>
 
 {% endblock %}

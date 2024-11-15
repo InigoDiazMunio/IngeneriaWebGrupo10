@@ -1,22 +1,21 @@
 {% extends 'base.html' %}
-{% block titulo %}Lista de Recetas{% endblock %}
+{% block titulo %}Lista de Ingredientes{% endblock %}
 
 {% block contenido %}
-<h2>Recetas Disponibles</h2>
-<div class="recetas-lista">
+<h2>Ingredientes Disponibles</h2>
+<div class="lista">
     <ul>
-        {% for receta in recetas %}
-        <li class="receta-item">
-            <a href="{% url 'detail_receta' receta.id %}">
-                <div class="receta-info">
-                    <h3>{{ receta.nombre }}</h3>
-                    <p><strong>Tipo de Plato:</strong> {{ receta.tipo.nombre }}</p>
-                    <p>{{ receta.descripcion }}</p>
+        {% for ingrediente in ingredientes %}
+        <li class="item">
+            <a href="{% url 'detail_ingrediente' ingrediente.id %}">
+                <div class="ingrediente-info">
+                    <h3>{{ ingrediente.nombre }}</h3>
+                    <p><strong>Categoría:</strong> {{ ingrediente.categoria }}</p>
                 </div>
             </a>
         </li>
         {% empty %}
-        <li>No hay recetas disponibles.</li>
+        <li>No hay ingredientes disponibles.</li>
         {% endfor %}
     </ul>
 </div>

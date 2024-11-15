@@ -1,12 +1,16 @@
 {% extends 'base.html' %}
 {% block titulo %}Tipos de Plato{% endblock %}
 
+{% block extrastyle %}
+<link rel="stylesheet" href="{% static 'styleDetalles.css' %}">
+{% endblock %}
+
 {% block contenido %}
 <h2>Tipos de Plato</h2>
-<div class="tipos-plato-lista">
+<div class="lista">
     <ul>
         {% for tipo_plato in tipos_plato %}
-        <li class="tipo-plato-item">
+        <li class="item tipo-plato-item">
             <a href="{% url 'detail_tipo_plato' tipo_plato.id %}">
                 <div class="tipo-plato-info">
                     <h3>{{ tipo_plato.nombre }}</h3>
@@ -19,5 +23,6 @@
         {% endfor %}
     </ul>
 </div>
-<a href="{% url 'index' %}">Volver al Inicio</a>
+
+<a href="{% url 'index' %}" class="btn-volver">Volver al Inicio</a>
 {% endblock %}

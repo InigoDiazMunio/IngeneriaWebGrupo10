@@ -1,17 +1,21 @@
 {% extends 'base.html' %}
 {% block titulo %}Lista de Recetas{% endblock %}
 
+{% block extrastyle %}
+<link rel="stylesheet" href="{% static 'styleDetalles.css' %}">
+{% endblock %}
+
 {% block contenido %}
 <h2>Recetas Disponibles</h2>
-<div class="recetas-lista">
+<div class="lista">
     <ul>
         {% for receta in recetas %}
-        <li class="receta-item">
+        <li class="item receta-item">
             <a href="{% url 'detail_receta' receta_id=receta.id %}">
                 <div class="receta-info">
                     <h3>{{ receta.nombre }}</h3>
-                    <p>Tipo de Plato: {{ receta.tipo.nombre }}</p>
-                    <p>Ingredientes: 
+                    <p><strong>Tipo de Plato:</strong> {{ receta.tipo.nombre }}</p>
+                    <p><strong>Ingredientes:</strong> 
                         {% for ingrediente in receta.ingredientes.all %}
                             {{ ingrediente.nombre }}{% if not forloop.last %}, {% endif %}
                         {% endfor %}
@@ -24,5 +28,6 @@
         {% endfor %}
     </ul>
 </div>
-<a href="{% url 'index' %}">Volver al Inicio</a>
+
+<a href="{% url 'index' %}" class="btn-volver">Volver al Inicio</a>
 {% endblock %}
