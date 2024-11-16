@@ -3,7 +3,7 @@ from .models import Receta, Ingrediente, TipoPlato
 
 # Vista para la página principal
 def index(request):
-    return render(request, 'index.html')
+    return render(request, 'base.html')
 
 # Vista para listar todas las recetas
 def list_recetas(request):
@@ -52,3 +52,4 @@ def politica_privacidad(request):
 
 def terminos_condiciones(request):
     return render(request, 'terminos_condiciones.html')
+
