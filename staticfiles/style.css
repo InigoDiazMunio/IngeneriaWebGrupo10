@@ -1,0 +1,375 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Georgia', serif; 
+}
+
+/* Body */
+body {
+    background-color: #F8F8F8;
+    color: #333;
+    line-height: 1.6;
+}
+/* Fondo de la página de inicio de sesión */
+body.login-page {
+    background: linear-gradient(to bottom right, #f0f4c3, #b2dfdb, #ffe0b2);
+    padding: 20px 0;
+}
+/* Cabecera */
+.main-header {
+    background-color: #e0f7fa; /* Tono suave azul verdoso */
+    border-bottom: 1px solid #b2dfdb;
+}
+
+.main-header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.main-header .logo h1 a {
+    text-decoration: none;
+    color: #004d40; /* Color verde oscuro */
+    font-size: 1.5em; /* Tamaño reducido */
+    font-weight: bold;
+}
+
+
+.main-header .main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.main-header .main-nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.main-header .main-nav ul li a:hover {
+    color: #017143; 
+}
+
+/* Botones de autenticación */
+
+.auth-buttons .btn-login,
+.auth-buttons .btn-signup {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    width: 140px;
+    text-align: center;
+}
+.auth-buttons .btn-login {
+    background-color: #00796b;
+}
+.auth-buttons .btn-login:hover {
+    background-color: #004d40; /* Verde más oscuro al pasar el mouse */
+}
+
+/* Botón de Cerrar Sesión */
+.auth-buttons .btn-logout {
+    text-decoration: none;
+    padding: 8px 20px;
+    background-color: #f44336; /* Rojo */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.auth-buttons .btn-signup {
+    background-color: #00796b;
+    color: white; /* Corregido para que el texto sea visible siempre */
+    border: none;
+}
+
+.auth-buttons .btn-signup:hover {
+    background-color: #004d40;
+}
+
+
+.auth-buttons .btn-signup:hover {
+    background-color: #016836; 
+}
+
+/* Contenido Principal */
+.main-content {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.main-content h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Botones Generales */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #017143;
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #016836;
+}
+
+/* Pie de Página */
+.main-footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+}
+
+.main-footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.main-footer p {
+    margin: 0;
+    color: white;
+}
+
+.main-footer ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.main-footer ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+.main-footer ul li a:hover {
+    text-decoration: underline;
+    color: #017143;
+}
+
+/* Sección de receta destacada */
+.recipe-highlight {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Imagen de la receta */
+.recipe-image img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+/* Detalles de la receta */
+.recipe-details {
+    flex: 1;
+    margin-left: 40px;
+}
+
+.recipe-details .inspiration {
+    text-transform: uppercase;
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.recipe-details .recipe-title {
+    font-size: 2.5em;
+    font-weight: bold;
+    line-height: 1.2;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.recipe-details .author {
+    font-size: 1em;
+    color: #017143;
+    margin-bottom: 10px;
+}
+
+.recipe-details .author .author-name {
+    font-weight: bold;
+}
+
+.recipe-details .likes {
+    font-size: 1em;
+    color: #666;
+}
+/* Contenedor del formulario de inicio de sesión */
+.login-container {
+    background-color: rgba(255, 255, 255, 0.9); /* Cambiado a un blanco semi-transparente */
+    padding: 40px;
+    max-width: 400px;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border: 2px solid #b2dfdb;
+}
+/* Título de la página de inicio de sesión */
+.login-title {
+    color: #00796b; /* Un tono verde que combina con el fondo */
+}
+
+
+/* Estilos para el formulario */
+.login-form .form-group {
+    margin-bottom: 15px;
+}
+
+.login-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    background-color: #f9f9f9;
+}
+
+/* Botón de iniciar sesión */
+.btn-login {
+    width: 100%;
+    padding: 12px;
+    background-color: #00796b;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.btn-login:hover {
+    background-color: #016836;
+}
+
+/* Pie del formulario */
+.login-footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9em;
+}
+
+.login-footer a {
+    color: #017143;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-footer a:hover {
+    text-decoration: underline;
+}
+
+
+/* Fondo para todas las páginas */
+body {
+    background: linear-gradient(to bottom right, #f0f4c3, #b2dfdb, #ffe0b2);
+    padding: 20px 0;
+}
+/* Contenedor de registro */
+.register-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border: 2px solid #004d40;
+}
+
+/* Título de registro */
+.register-title {
+    font-size: 1.8em;
+    color: #004d40;
+    margin-bottom: 20px;
+}
+.register-form .form-group {
+    margin-bottom: 15px;
+}
+/* Estilo del formulario */
+.register-form input[type="text"],
+.register-form input[type="email"],
+.register-form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+/* Botón de registro */
+.btn-register {
+    width: 100%;
+    padding: 12px;
+    background-color: #00796b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.btn-register:hover {
+    background-color: #004d40;
+}
+
+/* Pie de página del registro */
+.register-footer {
+    margin-top: 15px;
+}
+
+.register-footer a {
+    color: #00796b;
+    text-decoration: none;
+}
+
+.register-footer a:hover {
+    color: #004d40;
+}
+

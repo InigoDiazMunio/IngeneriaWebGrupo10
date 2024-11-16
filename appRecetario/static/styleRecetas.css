@@ -1,0 +1,65 @@
+/* Estilo para el contenedor de las recetas */
+.recipes-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin: 40px auto;
+    max-width: 1200px;
+}
+
+/* Tarjeta de receta */
+.recipe-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 300px;
+    transition: transform 0.2s ease;
+}
+
+.recipe-card:hover {
+    transform: scale(1.05);
+}
+
+/* Imagen de la receta */
+.recipe-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-bottom: 2px solid #006b5f;
+}
+
+/* Información de la receta */
+.recipe-info {
+    padding: 15px;
+    text-align: center;
+}
+
+.recipe-title {
+    font-size: 1.5em;
+    color: #006b5f;
+    margin-bottom: 10px;
+}
+
+.recipe-type,
+.recipe-ingredients {
+    font-size: 0.9em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.btn-recipe {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #006b5f;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-recipe:hover {
+    background-color: #004f47;
+}

@@ -1,35 +1,29 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block titulo %}Lista de Recetas{% endblock %}
-
 {% block extrastyle %}
-<link rel="stylesheet" href="{% static 'styleDetalles.css' %}">
+<link rel="stylesheet" href="{% static 'styleRecetas.css' %}">
 {% endblock %}
-
 
 {% block contenido %}
 <h2>Recetas Disponibles</h2>
-<div class="lista">
-    <ul>
-        {% for receta in recetas %}
-        <li class="item receta-item">
-            <a href="{% url 'detail_receta' receta_id=receta.id %}">
-                <div class="receta-info">
-                    <h3>{{ receta.nombre }}</h3>
-                    <p><strong>Tipo de Plato:</strong> {{ receta.tipo.nombre }}</p>
-                    <p><strong>Ingredientes:</strong> 
-                        {% for ingrediente in receta.ingredientes.all %}
-                            {{ ingrediente.nombre }}{% if not forloop.last %}, {% endif %}
-                        {% endfor %}
-                    </p>
-                </div>
-            </a>
-        </li>
-        {% empty %}
-        <li>No hay recetas disponibles.</li>
-        {% endfor %}
-    </ul>
-</div>
+<div class="recipes-container">
+    {% for receta in recetas %}
+    <div class="recipe-card">
+        {% if receta.imagen %}
+    <img src="{{ receta.imagen.url }}" alt="{{ receta.nombre }}" class="recipe-image">
+    {% else %}
+    <img src="{% static 'default_image.png' %}" alt="Imagen no disponible" class="recipe-image">
+    {% endif %}
 
-<a href="{% url 'index' %}" class="btn-volver">Volver al Inicio</a>
+        <div class="recipe-info">
+            <h3 class="recipe-title">{{ receta.nombre }}</h3>
+            <p>Tipo de Plato: {{ receta.tipo.nombre }}</p>
+            <p>Ingredientes: {{ receta.ingredientes.all|join:", " }}</p>
+        </div>
+        <a href="{% url 'detail_receta' receta.id %}" class="btn-recipe">Ver Detalles</a>
+    </div>
+    {% empty %}
+    <p>No hay recetas disponibles.</p>
+    {% endfor %}
+</div>
 {% endblock %}

@@ -17,9 +17,9 @@ class TipoPlato(models.Model):
 
 class Receta(models.Model):
     nombre = models.CharField(max_length=100)
-    tipo = models.ForeignKey(TipoPlato, on_delete=models.CASCADE)
-    ingredientes = models.ManyToManyField(Ingrediente, related_name='recetas')
-    descripcion = models.TextField(blank=True)
+    tipo_plato = models.ForeignKey('TipoPlato', on_delete=models.CASCADE)
+    ingredientes = models.TextField()
+    imagen = models.ImageField(upload_to='recetas/', blank=True, null=True)
 
     def __str__(self):
         return self.nombre
