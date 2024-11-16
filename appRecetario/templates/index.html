@@ -1,66 +1,37 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block titulo %} Menú {% endblock %}
-
-{% block extrastyle %}
-<link rel="stylesheet" href="{% static 'styleDetalles.css' %}">
-{% endblock %}
+{% block titulo %}Inicio - Recipes Store{% endblock %}
 
 {% block contenido %}
-    <div class="menu-items">
-        <!-- Tipos de Plato -->
-        <div class="menu-item">
-            <a href="{% url 'list_tipos_plato' %}">
-                <img src="{% static 'images/tipos_plato.jpg' %}" alt="Tipos de Plato">
-                <p>Explora nuestros diferentes tipos de plato</p>
-            </a>
-        </div>
-
-        <!-- Recetas -->
-        <div class="menu-item">
-            <a href="{% url 'list_recetas' %}">
-                <img src="{% static 'images/recetas.jpg' %}" alt="Recetas">
-                <p>Descubre nuestras recetas destacadas</p>
-            </a>
-        </div>
-
-        <!-- Ingredientes -->
-        <div class="menu-item">
-            <a href="{% url 'list_ingredientes' %}">
-                <img src="{% static 'images/ingredientes.jpg' %}" alt="Ingredientes">
-                <p>Conoce nuestros ingredientes frescos</p>
-            </a>
-        </div>
+<div class="recipe-highlight">
+    <div class="recipe-image">
+        <img src="{{ plato_destacado.imagen.url }}" alt="{{ plato_destacado.nombre }}">
     </div>
+    <div class="recipe-details">
+        <p class="inspiration">Inspiración de la Semana</p>
+        <h1 class="recipe-title">{{ plato_destacado.nombre }}</h1>
+        <p class="author">{{ plato_destacado.descripcion }}</p>
+        <p class="likes">❤️ 2.7k</p>
+    </div>
+</div>
 
-    <!-- Recetas Destacadas -->
-    <div class="recetas-destacadas">
-        <h2>Recetas Destacadas</h2>
-        <div class="recetas-tipo-plato">
-            {% for tipo_plato in tipos_plato %}
-                <div class="menu-item">
-                    <h3>{{ tipo_plato.nombre }}</h3>
-                    {% for receta in recetas %}
-                        {% if receta.tipo_id == tipo_plato.id %}
-                            <a href="{% url 'detail_receta' receta.id %}">
-                                <div class="receta-item">
-                                    <img src="{% static receta.imagen.name %}" alt="{{ receta.nombre }}">
-                                    <p class="receta-nombre">{{ receta.nombre }}</p>
-                                    <p class="receta-descripcion">{{ receta.descripcion }}</p>
-                                </div>
-                            </a>
-                        {% endif %}
-                    {% endfor %}
+<!-- Últimas Recetas -->
+<div class="latest-recipes">
+    <h2>Nuestras Recetas Más Recientes</h2>
+    <div class="recipes-container">
+        {% for receta in recetas %}
+        <div class="recipe-card">
+            <a href="{% url 'detail_receta' receta.id %}">
+                <img src="{{ receta.imagen.url }}" alt="{{ receta.nombre }}">
+                <div class="recipe-info">
+                    <h3>{{ receta.nombre }}</h3>
+                    <p>{{ receta.descripcion|truncatewords:10 }}</p>
+                    <span class="recipe-time">{{ receta.tiempo_preparacion }} min</span>
                 </div>
-            {% endfor %}
+            </a>
         </div>
+        {% endfor %}
     </div>
-
-    <!-- Sección de Contacto -->
-    <div class="contacto-seccion">
-        <h2>Contáctanos</h2>
-        <p>Si tienes alguna pregunta o necesitas más información, visita nuestra página de <a href="{% url 'contacto' %}">Contacto</a>.</p>
-    </div>
-
+</div>
 {% endblock %}
