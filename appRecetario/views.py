@@ -17,21 +17,12 @@ def home_page(request):
         'plato_destacado': plato_destacado,
         'recetas': recetas,
     })
+    
 # Vista para listar todas las recetas
 def list_recetas(request):
     recetas = Receta.objects.all()
     return render(request, 'recetas/list.html', {'recetas': recetas})
 
-
-def index(request):
-    # Selecciona un plato destacado
-    plato_destacado = Receta.objects.first()  # El primer plato como ejemplo
-    # Últimas recetas publicadas
-    recetas = Receta.objects.order_by('-fecha_publicacion')[:4]  # Últimas 4 recetas
-    return render(request, 'index.html', {
-        'plato_destacado': plato_destacado,
-        'recetas': recetas,
-    })
 
 def detail_receta(request, receta_id):
     receta = get_object_or_404(Receta, id=receta_id)
