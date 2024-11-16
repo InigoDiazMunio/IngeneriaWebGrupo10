@@ -13,6 +13,9 @@ urlpatterns = [
     path('contacto/', views.contacto, name='contacto'),
     path('politica-privacidad/', views.politica_privacidad, name='politica_privacidad'),
     path('terminos-condiciones/', views.terminos_condiciones, name='terminos_condiciones'),
+    path('register/', views.register, name='register'),
+    path('login/', views.login_view, name='login'),
+    path('logout/', views.logout_view, name='logout'),
 ]
 
 

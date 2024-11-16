@@ -52,20 +52,53 @@ body {
     color: #017143; 
 }
 
-.auth-buttons .btn-login,
-.auth-buttons .btn-signup {
+/* Botones de autenticación */
+.auth-buttons .btn-login {
     text-decoration: none;
     padding: 8px 20px;
-    border: 1px solid #333;
+    background-color: white; /* Fondo blanco */
+    color: #017143; /* Texto verde */
+    border: 2px solid #017143; /* Borde verde */
     border-radius: 5px;
     font-size: 0.9em;
+    font-family: 'Georgia', serif; /* Tipografía */
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.auth-buttons .btn-login:hover {
+    background-color: #017143; /* Fondo verde al hacer hover */
+    color: white; /* Texto blanco */
 }
 
 .auth-buttons .btn-signup {
     background-color: #017143; 
     color: white;
     border: none;
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    font-family: 'Georgia', serif;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
 }
+/* Botón de Cerrar Sesión */
+.auth-buttons .btn-logout {
+    text-decoration: none;
+    padding: 8px 20px;
+    background-color: #f44336; /* Rojo */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.auth-buttons .btn-logout:hover {
+    background-color: #d32f2f;
+}
+
 
 .auth-buttons .btn-signup:hover {
     background-color: #016836; 

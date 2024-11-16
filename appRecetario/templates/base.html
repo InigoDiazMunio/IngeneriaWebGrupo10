@@ -23,9 +23,15 @@
                 </ul>
             </nav>
             <div class="auth-buttons">
-                <a href="#" class="btn-login">Iniciar Sesión</a>
-                <a href="#" class="btn-signup">Registrarse</a>
+                {% if user.is_authenticated %}
+                    <span>Bienvenido, {{ user.username }}</span>
+                    <a href="{% url 'logout' %}" class="btn-logout">Cerrar Sesión</a>
+                {% else %}
+                    <a href="{% url 'login' %}" class="btn-login">Iniciar Sesión</a>
+                    <a href="{% url 'register' %}" class="btn-signup">Registrarse</a>
+                {% endif %}
             </div>
+            
         </div>
     </header>
 
