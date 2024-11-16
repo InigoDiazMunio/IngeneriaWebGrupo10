@@ -20,6 +20,11 @@ def detail_ingrediente(request, id):
     ingrediente = get_object_or_404(Ingrediente, id=id)
     return render(request, 'ingredientes/detail.html', {'ingrediente': ingrediente})
 
+
+def list_ingredientes(request):
+    ingredientes = Ingrediente.objects.all()
+    return render(request, 'ingredientes/list.html', {'ingredientes': ingredientes})
+
 # Vista para listar todos los tipos de plato
 def list_tipos_plato(request):
     tipos_plato = TipoPlato.objects.all()

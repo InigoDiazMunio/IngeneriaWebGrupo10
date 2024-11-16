@@ -1,13 +1,14 @@
-import os
 from pathlib import Path
+import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-m02i-e*tbfob65)#@jbueg#&b6^$%y)twzd%qa=bv+0id^36o('
+
 DEBUG = True
+
 ALLOWED_HOSTS = []
 
-# Aplicaciones instaladas
 INSTALLED_APPS = [
     'appRecetario',
     'django.contrib.admin',
@@ -18,7 +19,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
-# Middleware
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -29,7 +29,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'proyectoRecetario.urls'
+ROOT_URLCONF = 'appRecetario.urls'
+
 
 TEMPLATES = [
     {
@@ -47,9 +48,8 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'proyectoRecetario.wsgi.application'
+WSGI_APPLICATION = 'wsgi.application'
 
-# Configuración de base de datos
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -57,12 +57,14 @@ DATABASES = {
     }
 }
 
-# Archivos estáticos
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / 'static']
+LANGUAGE_CODE = 'en-us'
 
-# Archivos de medios (imagenes, etc)
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+TIME_ZONE = 'UTC'
+
+USE_I18N = True
+
+USE_TZ = True
+
+STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
