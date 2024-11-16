@@ -2,194 +2,141 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: 'Georgia', serif; 
 }
 
-/* Estilo para el cuerpo */
+/* Body */
 body {
-    background-color: #f0f0f0;
+    background-color: #F8F8F8;
     color: #333;
     line-height: 1.6;
 }
 
-/* Encabezado y navegación */
-header {
-    background-color: #4caf50;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
+/* Cabecera */
+.main-header {
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
 }
 
-h1 {
-    font-size: 2em;
+.main-header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-nav ul {
+.main-header .logo h1 a {
+    text-decoration: none;
+    color: #017143; 
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.main-header .main-nav ul {
     list-style: none;
     display: flex;
-    justify-content: center;
-    padding: 0;
-}
-
-nav ul li {
-    margin: 0 15px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-nav ul li a:hover {
-    color: #ff5722;
-}
-
-/* Contenedor principal */
-.container {
-    max-width: 1200px;
-    margin: 20px auto;
-    padding: 20px;
-}
-
-/* Estilos para la página de inicio */
-.menu-items {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    margin-top: 20px;
-}
-
-.menu-item {
-    flex: 1 1 30%;
-    max-width: 300px;
-    margin: 20px;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.2s;
-}
-
-.menu-item:hover {
-    transform: scale(1.05);
-}
-
-.menu-item img {
-    max-width: 100%;
-    border-radius: 8px;
-    height: auto;
-}
-
-.menu-item p {
-    margin-top: 10px;
-    font-size: 1.2em;
-    font-weight: bold;
-}
-
-/* Estilos para listas de recetas, ingredientes y tipos de plato */
-.lista {
-    display: flex;
-    flex-wrap: wrap;
     gap: 20px;
-    justify-content: space-around;
 }
 
-.item,
-.receta-item,
-.tipo-plato-item {
-    flex: 1 1 45%;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 15px;
+.main-header .main-nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.main-header .main-nav ul li a:hover {
+    color: #017143; 
+}
+
+.auth-buttons .btn-login,
+.auth-buttons .btn-signup {
+    text-decoration: none;
+    padding: 8px 20px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    font-size: 0.9em;
+}
+
+.auth-buttons .btn-signup {
+    background-color: #017143; 
+    color: white;
+    border: none;
+}
+
+.auth-buttons .btn-signup:hover {
+    background-color: #016836; 
+}
+
+/* Contenido Principal */
+.main-content {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
     text-align: center;
-    margin-bottom: 20px;
 }
 
-.item img,
-.receta-item img,
-.tipo-plato-item img {
-    max-width: 100%;
-    border-radius: 8px;
-    height: auto;
-}
-
-.item h3,
-.receta-item h3,
-.tipo-plato-item h3 {
-    margin-top: 10px;
-    font-size: 1.5em;
-}
-
-.item p,
-.receta-item p,
-.tipo-plato-item p {
-    color: #666;
-    margin-top: 10px;
-}
-
-/* Estilos para recetas destacadas */
-.recetas-destacadas {
-    text-align: center;
-    margin-top: 30px;
-}
-
-.recetas-destacadas h2 {
+.main-content h2 {
     font-size: 2em;
     margin-bottom: 20px;
+    color: #333;
 }
 
-.receta-item {
-    margin: 15px 0;
-}
-
-.receta-item img {
-    width: 150px;
-    height: 150px;
-    border-radius: 8px;
-}
-
-.receta-nombre {
-    margin-top: 10px;
-    font-size: 1.2em;
-}
-
-.receta-descripcion {
-    margin-top: 5px;
-    color: #555;
-}
-
-/* Estilos para botones */
-.btn-volver {
+/* Botones Generales */
+.btn {
     display: inline-block;
-    margin-top: 20px;
     padding: 10px 20px;
-    background-color: #4caf50;
+    background-color: #017143;
     color: white;
     border-radius: 4px;
     text-decoration: none;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease;
 }
 
-.btn-volver:hover {
-    background-color: #45a049;
+.btn:hover {
+    background-color: #016836;
 }
 
-/* Pie de página */
-footer {
+/* Pie de Página */
+.main-footer {
     background-color: #333;
     color: white;
-    text-align: center;
-    padding: 20px;
-    margin-top: 20px;
+    padding: 20px 0;
 }
 
-footer a {
-    color: #ff5722;
+.main-footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.main-footer p {
+    margin: 0;
+    color: white;
+}
+
+.main-footer ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.main-footer ul li a {
     text-decoration: none;
+    color: white;
 }
 
-footer a:hover {
+.main-footer ul li a:hover {
     text-decoration: underline;
+    color: #017143;
 }
+

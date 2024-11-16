@@ -1,54 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
     <link rel="stylesheet" href="{% static 'style.css' %}">
-    {% block extrastyle %}
-        <!-- Estilos adicionales condicionales -->
-        {% if request.resolver_match.url_name == 'contacto' %}
-            <link rel="stylesheet" href="{% static 'styleContacto.css' %}">
-        {% endif %}
-        {% if request.resolver_match.url_name == 'detail_receta' or request.resolver_match.url_name == 'detail_ingrediente' or request.resolver_match.url_name == 'detail_tipo_plato' %}
-            <link rel="stylesheet" href="{% static 'styleDetalles.css' %}">
-        {% endif %}
-    {% endblock %}
+    {% block extrastyle %}{% endblock %}
     <title>{% block titulo %}Recipes Store{% endblock %}</title>
 </head>
 <body>
-    <header>
-        <h1>Recipes Store</h1>
-        <nav>
-            <ul>
-                <li><a href="{% url 'index' %}">Inicio</a></li>
-                <li><a href="{% url 'list_recetas' %}">Recetas</a></li>
-                <li><a href="{% url 'list_ingredientes' %}">Ingredientes</a></li>
-                <li><a href="{% url 'list_tipos_plato' %}">Tipos de Plato</a></li>
-                <li><a href="{% url 'contacto' %}">Contacto</a></li>
-            </ul>
-        </nav>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <h1><a href="{% url 'index' %}">Recipes Store</a></h1>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="{% url 'list_recetas' %}">Recetas</a></li>
+                    <li><a href="{% url 'list_ingredientes' %}">Ingredientes</a></li>
+                    <li><a href="{% url 'list_tipos_plato' %}">Tipos de Platos</a></li>
+                    <li><a href="{% url 'contacto' %}">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <a href="#" class="btn-login">Iniciar Sesión</a>
+                <a href="#" class="btn-signup">Registrarse</a>
+            </div>
+        </div>
     </header>
 
-    <main>
+    <main class="main-content">
         {% block contenido %}
         {% endblock %}
     </main>
 
-    <footer>
-        <p id="parrafo-footer">
-            &copy; <span id="anyoMostrado"></span> Recipes Store
-            <a href="{% url 'contacto' %}">Contacto</a>
-            <a href="{% url 'politica_privacidad' %}">Política de privacidad</a>
-            <a href="{% url 'terminos_condiciones' %}">Términos y condiciones</a>
-        </p>
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; <span id="anyoMostrado"></span> Recipes Store</p>
+            <ul>
+                <li><a href="{% url 'politica_privacidad' %}">Política de Privacidad</a></li>
+                <li><a href="{% url 'terminos_condiciones' %}">Términos y Condiciones</a></li>
+            </ul>
+        </div>
     </footer>
 
     <script>
         // Actualizar el año en el pie de página
         const fechaActual = new Date();
-        const anyoActual = fechaActual.getFullYear();
-        document.getElementById("anyoMostrado").innerText = anyoActual;
+        document.getElementById("anyoMostrado").innerText = fechaActual.getFullYear();
     </script>
 
     {% block extrascript %}

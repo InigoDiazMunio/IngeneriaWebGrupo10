@@ -5,34 +5,34 @@
     padding: 20px;
     background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Título del formulario de contacto */
+/* Título del formulario */
 .contacto-title {
     text-align: center;
     font-size: 1.8em;
-    color: #333;
+    color: #017143;
     margin-bottom: 20px;
 }
 
-/* Estilo para los inputs y textarea */
+/* Inputs y Textarea */
 .contacto-form input,
 .contacto-form textarea {
     width: 100%;
     padding: 12px;
     margin-bottom: 15px;
-    border: 1px solid #ccc;
+    border: 1px solid #ddd;
     border-radius: 4px;
     font-size: 1em;
     background-color: #f9f9f9;
 }
 
-/* Botón de envío del formulario */
+/* Botón de envío */
 .contacto-form button {
     width: 100%;
     padding: 12px;
-    background-color: #4caf50;
+    background-color: #017143;
     color: white;
     border: none;
     border-radius: 4px;
@@ -42,52 +42,23 @@
 }
 
 .contacto-form button:hover {
-    background-color: #45a049;
+    background-color: #016836;
 }
 
-/* Botón de "Volver al Inicio" */
+/* Botón de Volver */
 .btn-volver {
     display: inline-block;
     padding: 12px;
     color: #fff;
-    background-color: #4caf50;
+    background-color: #017143;
     text-decoration: none;
     border-radius: 4px;
     text-align: center;
     font-weight: bold;
     margin-top: 20px;
-    transition: background-color 0.3s ease;
     width: 100%;
 }
 
 .btn-volver:hover {
-    background-color: #45a049;
+    background-color: #016836;
 }
-
-/* Mensajes de error o éxito */
-.contacto-mensaje {
-    text-align: center;
-    margin-top: 20px;
-    font-size: 1em;
-    color: #e44d26;
-}
-
-/* Ajuste para pantallas pequeñas */
-@media (max-width: 600px) {
-    .contacto-container {
-        padding: 15px;
-    }
-
-    .contacto-title {
-        font-size: 1.5em;
-    }
-
-    .contacto-form button {
-        padding: 10px;
-    }
-
-    .btn-volver {
-        padding: 10px;
-    }
-}
-
