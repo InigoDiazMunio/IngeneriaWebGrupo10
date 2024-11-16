@@ -47,3 +47,8 @@ def index(request):
 def contacto(request):
     return render(request, 'contacto.html')
 
+def politica_privacidad(request):
+    return render(request, 'politica_privacidad.html')
+
+def terminos_condiciones(request):
+    return render(request, 'terminos_condiciones.html')

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extrastyle %}
+<link rel="stylesheet" href="{% static 'styleContacto.css' %}">
+{% endblock %}
+
+{% block titulo %}Términos y Condiciones{% endblock %}
+
+{% block contenido %}
+<div class="contacto-container">
+    <h2 class="contacto-title">Términos y Condiciones</h2>
+    <p>
+        Bienvenido a Recipes Store. Al utilizar este sitio web, aceptas los siguientes términos y condiciones. Por favor, léelos cuidadosamente antes de utilizar nuestros servicios.
+    </p>
+    <h3>Uso del sitio</h3>
+    <p>
+        Este sitio está destinado únicamente para uso personal y no comercial. No puedes copiar, distribuir ni modificar ningún contenido sin nuestro consentimiento previo.
+    </p>
+    <h3>Propiedad intelectual</h3>
+    <p>
+        Todos los derechos sobre el contenido, diseño y código de este sitio son propiedad de Recipes Store. Cualquier uso no autorizado está estrictamente prohibido.
+    </p>
+    <h3>Exclusión de responsabilidad</h3>
+    <p>
+        Recipes Store no se responsabiliza por cualquier daño o pérdida que pueda surgir del uso de este sitio web.
+    </p>
+    <a href="{% url 'index' %}" class="btn-volver">Volver al Inicio</a>
+</div>
+{% endblock %}

@@ -11,4 +11,8 @@ urlpatterns = [
     path('tipos_plato/', views.list_tipos_plato, name='list_tipos_plato'),
     path('tipos_plato/<int:id>/', views.detail_tipo_plato, name='detail_tipo_plato'),
     path('contacto/', views.contacto, name='contacto'),
+    path('politica-privacidad/', views.politica_privacidad, name='politica_privacidad'),
+    path('terminos-condiciones/', views.terminos_condiciones, name='terminos_condiciones'),
 ]
+
+

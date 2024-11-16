@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extrastyle %}
+<link rel="stylesheet" href="{% static 'styleContacto.css' %}">
+{% endblock %}
+
+{% block titulo %}Política de Privacidad{% endblock %}
+
+{% block contenido %}
+<div class="contacto-container">
+    <h2 class="contacto-title">Política de Privacidad</h2>
+    <p>
+        En Recipes Store, respetamos tu privacidad y nos comprometemos a protegerla. Esta política explica cómo recopilamos, usamos y compartimos tu información personal.
+    </p>
+    <h3>Recopilación de información</h3>
+    <p>
+        Recopilamos información que nos proporcionas directamente, como tu nombre, correo electrónico y cualquier mensaje que envíes a través del formulario de contacto.
+    </p>
+    <h3>Uso de la información</h3>
+    <p>
+        Utilizamos tu información para responder a tus consultas, mejorar nuestro sitio web y enviarte actualizaciones relevantes, si has dado tu consentimiento.
+    </p>
+    <h3>Terceros</h3>
+    <p>
+        No compartimos tu información con terceros, excepto cuando sea necesario para cumplir con la ley o proteger nuestros derechos.
+    </p>
+    <a href="{% url 'index' %}" class="btn-volver">Volver al Inicio</a>
+</div>
+{% endblock %}
