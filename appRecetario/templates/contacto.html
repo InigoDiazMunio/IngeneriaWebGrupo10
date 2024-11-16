@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% load static %}
+
 {% block extrastyle %}
 <link rel="stylesheet" href="{% static 'styleContacto.css' %}">
 {% endblock %}
@@ -23,5 +25,5 @@
     <button type="submit">Enviar</button>
 </form>
 
-<a href="{% url 'index' %}">Volver al Inicio</a>
+<a href="{% url 'index' %}" class="btn-volver">Volver al Inicio</a>
 {% endblock %}
