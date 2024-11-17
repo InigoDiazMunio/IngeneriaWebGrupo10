@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% load static %}
+
 {% block extrastyle %}
 <link rel="stylesheet" href="{% static 'styleDetalles.css' %}">
 {% endblock %}
@@ -8,7 +10,7 @@
 {% block contenido %}
 <h2>{{ receta.nombre }}</h2>
 
-<p><strong>Tipo de plato:</strong> {{ receta.tipo.nombre }}</p>
+<p><strong>Tipo de plato:</strong> {{ receta.tipo_plato.nombre }}</p>
 <p><strong>Descripción:</strong> {{ receta.descripcion }}</p>
 
 <h3>Ingredientes:</h3>
@@ -20,6 +22,7 @@
     {% endfor %}
 </ul>
 
-<a href="{% url 'list_recetas' %}">Volver a la lista de recetas</a>
-<a href="{% url 'index' %}">Volver al Inicio</a>
+<a href="{% url 'list_recetas' %}" class="btn">Volver a la lista de recetas</a>
+<a href="{% url 'index' %}" class="btn">Volver al Inicio</a>
+
 {% endblock %}

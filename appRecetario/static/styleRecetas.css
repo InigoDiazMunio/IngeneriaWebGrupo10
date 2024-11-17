@@ -63,3 +63,13 @@
 .btn-recipe:hover {
     background-color: #004f47;
 }
+
+ul {
+    list-style-type: none; 
+    padding: 0; 
+    margin: 0; 
+}
+
+li {
+    margin-bottom: 5px;
+}
