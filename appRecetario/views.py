@@ -5,14 +5,19 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
 from .forms import UserRegisterForm
-# Vista para la página principal
+from django.db.models import Model
+
 def index(request):
-    # Selecciona una receta destacada, por ejemplo, la primera receta.
-    plato_destacado = Receta.objects.first()  
+    # Obtener la receta destacada (puedes cambiar la lógica según lo necesites)
+    plato_destacado = Receta.objects.first()
+
+    # Obtener las últimas 4 recetas
+    recetas = Receta.objects.order_by('-id')[:4]  
+
     return render(request, 'index.html', {
         'plato_destacado': plato_destacado,
+        'recetas': recetas,
     })
-    
 # Vista para listar todas las recetas
 def list_recetas(request):
     recetas = Receta.objects.all()

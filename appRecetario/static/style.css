@@ -18,7 +18,7 @@ body.login-page {
 }
 /* Cabecera */
 .main-header {
-    background-color: #e0f7fa; /* Tono suave azul verdoso */
+    background-color: #e0f7fa; 
     border-bottom: 1px solid #b2dfdb;
 }
 
@@ -33,8 +33,8 @@ body.login-page {
 
 .main-header .logo h1 a {
     text-decoration: none;
-    color: #004d40; /* Color verde oscuro */
-    font-size: 1.5em; /* Tamaño reducido */
+    color: #004d40; 
+    font-size: 1.5em; 
     font-weight: bold;
 }
 
@@ -73,14 +73,14 @@ body.login-page {
     background-color: #00796b;
 }
 .auth-buttons .btn-login:hover {
-    background-color: #004d40; /* Verde más oscuro al pasar el mouse */
+    background-color: #004d40; 
 }
 
 /* Botón de Cerrar Sesión */
 .auth-buttons .btn-logout {
     text-decoration: none;
     padding: 8px 20px;
-    background-color: #f44336; /* Rojo */
+    background-color: #f44336; 
     color: white;
     border: none;
     border-radius: 5px;
@@ -90,7 +90,7 @@ body.login-page {
 }
 .auth-buttons .btn-signup {
     background-color: #00796b;
-    color: white; /* Corregido para que el texto sea visible siempre */
+    color: white; 
     border: none;
 }
 

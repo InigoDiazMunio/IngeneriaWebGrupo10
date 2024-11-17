@@ -5,7 +5,6 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('', views.list_recetas, name='index'),
     path('', views.index, name='index'),  
     path('recetas/', views.list_recetas, name='list_recetas'), 
     path('recetas/<int:receta_id>/', views.detail_receta, name='detail_receta'), 
@@ -22,6 +21,7 @@ urlpatterns = [
     path('login/', views.login_view, name='login'),
     path('logout/', views.logout_view, name='logout'),
     path('ingredientes/<int:pk>/', views.detail_ingrediente, name='detail_ingrediente'),
+    path('admin/', admin.site.urls),  
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
