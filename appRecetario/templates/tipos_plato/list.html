@@ -14,7 +14,11 @@
     {% for tipo_plato in tipos_plato %}
     <a href="{% url 'detail_tipo_plato' tipo_plato.id %}" class="category-card-rectangular">
         <div class="category-image-rectangular">
-            <img src="{{ tipo_plato.imagen.url }}" alt="{{ tipo_plato.nombre }}">
+            {% if tipo_plato.imagen %}
+                <img src="{{ tipo_plato.imagen.url }}" alt="{{ tipo_plato.nombre }}">
+            {% else %}
+                <img src="{% static 'images/default.png' %}" alt="Imagen no disponible">
+            {% endif %}
         </div>
         <div class="category-text-rectangular">
             <h4>{{ tipo_plato.nombre }}</h4>
