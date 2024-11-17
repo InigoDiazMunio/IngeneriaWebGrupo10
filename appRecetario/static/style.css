@@ -121,8 +121,8 @@ body.login-page {
 .recipe-highlight {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    max-width: 1200px;
+    justify-content: center;
+    max-width: 800px;
     margin: 40px auto;
     padding: 20px;
     background-color: #ffffff;
@@ -133,14 +133,15 @@ body.login-page {
 
 .recipe-image img {
     width: 100%;
-    max-width: 500px;
-    border-radius: 8px;
+    max-width: 250px;
+    border-radius: 10px;
     object-fit: cover;
 }
 
 .recipe-details {
     flex: 1;
-    margin-left: 40px;
+    margin-left: 20px;
+    text-align: center;
 }
 
 .recipe-details .inspiration {
@@ -182,6 +183,11 @@ body.login-page {
     margin-bottom: 20px;
     color: #333;
 }
+.recipe-container {
+    max-width: 600px; /* Reduce el ancho máximo */
+    text-align: center;
+}
+
 
 .recipes-container {
     display: grid;
@@ -291,13 +297,18 @@ body.login-page {
     text-decoration: underline;
     color: #017143;
 }
-
-/* Sección de receta destacada */
+.inspiration-image {
+    width: 100%;
+    max-width: 150px; /* Reducir el tamaño máximo */
+    max-height: 150px;
+    border-radius: 10px;
+    object-fit: cover;
+}
 .recipe-highlight {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    max-width: 1200px;
+    justify-content: center; /* Cambiado para centrar contenido */
+    max-width: 500px; /* Reducido el ancho máximo */
     margin: 40px auto;
     padding: 20px;
     background-color: #fff;
@@ -305,19 +316,14 @@ body.login-page {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Imagen de la receta */
-.recipe-image img {
-    width: 100%;
-    max-width: 500px;
-    border-radius: 8px;
-    object-fit: cover;
-}
-
 /* Detalles de la receta */
 .recipe-details {
     flex: 1;
-    margin-left: 40px;
+    margin-left: 10px;
+    text-align: center; /* Centrado del texto */
 }
+
+
 
 .recipe-details .inspiration {
     text-transform: uppercase;

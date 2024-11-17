@@ -16,7 +16,11 @@
     {% for receta in tipo_plato.receta_set.all %}
     <a href="{% url 'detail_receta' receta.id %}" class="recipe-card-rectangular">
         <div class="recipe-image-rectangular">
-            <img src="{{ receta.imagen.url }}" alt="{{ receta.nombre }}">
+            {% if receta.imagen %}
+                <img src="{{ receta.imagen.url }}" alt="{{ receta.nombre }}">
+            {% else %}
+                <img src="{% static 'images/default.jpg' %}" alt="Imagen no disponible">
+            {% endif %}
         </div>
         <div class="recipe-text-rectangular">
             <h4>{{ receta.nombre }}</h4>

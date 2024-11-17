@@ -5,20 +5,23 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
 from .forms import UserRegisterForm
-from django.db.models import Model
+from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render
+from .models import TipoPlato, Receta
 
 def index(request):
-    # Obtener la receta destacada (puedes cambiar la lógica según lo necesites)
-    plato_destacado = Receta.objects.first()
+    # Selecciona un tipo de plato específico, cambia el nombre si es necesario
+    tipo_plato = TipoPlato.objects.filter(nombre='Ensaladas').first()
 
-    # Obtener las últimas 4 recetas
-    recetas = Receta.objects.order_by('-id')[:4]  
+    # Verifica si el tipo de plato fue encontrado
+    if not tipo_plato:
+        print("Tipo de plato no encontrado.")
 
+    recetas = Receta.objects.all()[:5]
     return render(request, 'index.html', {
-        'plato_destacado': plato_destacado,
-        'recetas': recetas,
+        'tipo_plato': tipo_plato,
+        'recetas': recetas
     })
-# Vista para listar todas las recetas
 def list_recetas(request):
     recetas = Receta.objects.all()
     return render(request, 'recetas/list.html', {'recetas': recetas})
@@ -45,19 +48,16 @@ def list_tipos_plato(request):
     return render(request, 'tipos_plato/list.html', {'tipos_plato': tipos_plato})
 
 
-# Vista para ver los detalles de un tipo de plato específico
+
 def detail_tipo_plato(request, id):
     tipo_plato = get_object_or_404(TipoPlato, id=id)
-    return render(request, 'tipos_plato/detail.html', {'tipo_plato': tipo_plato})
-def index(request):
-    tipos_plato = TipoPlato.objects.all()
-    recetas = Receta.objects.all()
-    ingredientes = Ingrediente.objects.all()
-    return render(request, 'index.html', {
-        'tipos_plato': tipos_plato,
+    recetas = tipo_plato.receta_set.all()  # Obtiene las recetas asociadas al tipo de plato
+    context = {
+        'tipo_plato': tipo_plato,
         'recetas': recetas,
-        'ingredientes': ingredientes
-    })
+    }
+    return render(request, 'tipos_plato/detail.html', context)
+
     
 def contacto(request):
     return render(request, 'contacto.html')
@@ -114,3 +114,4 @@ def detail_ingrediente(request, pk):
     ingrediente = get_object_or_404(Ingrediente, pk=pk)
     recetas = Receta.objects.filter(ingredientes__icontains=ingrediente.nombre)
     return render(request, 'ingredientes/detail_ingrediente.html', {'ingrediente': ingrediente, 'recetas': recetas})
+

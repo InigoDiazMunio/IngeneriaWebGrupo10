@@ -4,20 +4,26 @@
 {% block titulo %}Inicio - Recipes Store{% endblock %}
 
 {% block contenido %}
+<!-- Inspiración de la Semana -->
 <div class="recipe-highlight">
-    <div class="recipe-image">
-        {% if tipo_plato.imagen %}
-        <img src="{% static tipo_platoimagen %}" alt="{{ tipo_plato.nombre }}">
-        {% else %}
-        <img src="{% static 'media/tipoPlato/goulash.jpg' %}" alt="Plato Destacado">
-        {% endif %}
-    </div>
-    <div class="recipe-details">
-        <p class="inspiration">Inspiración de la Semana</p>
-        <h1 class="recipe-title">{{ tipo_plato.nombre }}</h1>
-        <p class="description">{{ tipo_plato.descripcion }}</p>
+    <div class="recipe-container">
+        <div class="recipe-image">
+            {% if tipo_plato.imagen %}
+                <img src="{{ tipo_plato.imagen.url }}" alt="{{ tipo_plato.nombre }}" class="inspiration-image">
+            {% else %}
+                <img src="{% static 'media/tipoPlato/default.jpg' %}" alt="Plato Destacado" class="inspiration-image">
+            {% endif %}
+        </div>
+        <div class="recipe-details">
+            <p class="inspiration">Inspiración de la Semana</p>
+            <h1 class="recipe-title">
+                <a href="{% url 'detail_tipo_plato' tipo_plato.id %}">{{ tipo_plato.nombre }}</a>
+            </h1>
+            <p class="description">{{ tipo_plato.descripcion }}</p>
+        </div>
     </div>
 </div>
+
 
 <!-- Últimas Recetas -->
 <div class="latest-recipes">
