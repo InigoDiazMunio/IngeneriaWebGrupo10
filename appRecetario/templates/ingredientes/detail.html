@@ -7,17 +7,29 @@
 
 {% block contenido %}
 <h2>{{ ingrediente.nombre }}</h2>
+
+<!-- Mostrar la imagen del ingrediente -->
+<div class="ingrediente-detalle">
+    <img src="{{ ingrediente.imagen.url }}" alt="{{ ingrediente.nombre }}" class="ingrediente-imagen">
+</div>
+
 <p><strong>Categoría:</strong> {{ ingrediente.categoria }}</p>
 
 <h3>Recetas que contienen este ingrediente:</h3>
+
+<!-- Lista de recetas que contienen el ingrediente -->
 <div class="recetas-lista">
     <ul>
-        {% for receta in ingrediente.recetas.all %}
+        {% for receta in ingrediente.receta_set.all %}
         <li class="receta-item">
             <a href="{% url 'detail_receta' receta.id %}">
-                <div class="receta-info">
-                    <h3>{{ receta.nombre }}</h3>
-                    <p>Tipo de Plato: {{ receta.tipo.nombre }}</p>
+                <div class="receta-card">
+                    <!-- Imagen de la receta -->
+                    <img src="{{ receta.imagen.url }}" alt="{{ receta.nombre }}" class="receta-imagen">
+                    <div class="receta-info">
+                        <h3>{{ receta.nombre }}</h3>
+                        <p>Tipo de Plato: {{ receta.tipo_plato.nombre }}</p>
+                    </div>
                 </div>
             </a>
         </li>
@@ -27,6 +39,9 @@
     </ul>
 </div>
 
-<a href="{% url 'list_ingredientes' %}">Volver a la lista de Ingredientes</a>
-<a href="{% url 'index' %}">Volver al Inicio</a>
+<!-- Botones de navegación -->
+<div class="botones-navegacion">
+    <a href="{% url 'list_ingredientes' %}" class="btn-volver">Volver a la lista de Ingredientes</a>
+    <a href="{% url 'index' %}" class="btn-volver">Volver al Inicio</a>
+</div>
 {% endblock %}

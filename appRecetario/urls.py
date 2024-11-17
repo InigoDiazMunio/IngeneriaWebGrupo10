@@ -21,7 +21,8 @@ urlpatterns = [
     path('register/', views.register, name='register'),
     path('login/', views.login_view, name='login'),
     path('logout/', views.logout_view, name='logout'),
-    
+    path('ingredientes/<int:pk>/', views.detail_ingrediente, name='detail_ingrediente'),
+
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # Configuración para archivos estáticos y de medios

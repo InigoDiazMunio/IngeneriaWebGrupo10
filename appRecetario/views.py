@@ -100,3 +100,12 @@ def logout_view(request):
     logout(request)
     messages.info(request, 'Sesión cerrada exitosamente')
     return redirect('index')
+
+
+from django.shortcuts import render, get_object_or_404
+from .models import Ingrediente, Receta
+
+def detail_ingrediente(request, pk):
+    ingrediente = get_object_or_404(Ingrediente, pk=pk)
+    recetas = Receta.objects.filter(ingredientes__icontains=ingrediente.nombre)
+    return render(request, 'ingredientes/detail_ingrediente.html', {'ingrediente': ingrediente, 'recetas': recetas})

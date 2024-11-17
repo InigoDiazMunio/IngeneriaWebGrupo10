@@ -1,0 +1,46 @@
+.ingredients-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin: 40px auto;
+    max-width: 1200px;
+}
+
+.ingredient-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+    width: 300px;
+    transition: transform 0.2s ease;
+}
+
+.ingredient-card:hover {
+    transform: scale(1.05);
+}
+
+.ingredient-image {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+    border-bottom: 2px solid #4caf50;
+    background-color: #f0f0f0; /* Fondo gris claro para mejorar visibilidad del texto */
+}
+
+
+.btn-ingrediente {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-ingrediente:hover {
+    background-color: #388e3c;
+}

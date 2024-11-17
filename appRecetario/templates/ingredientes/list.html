@@ -1,24 +1,27 @@
 {% extends 'base.html' %}
-{% block titulo %}Lista de Ingredientes{% endblock %}
+{% load static %}
+
+{% block titulo %}Ingredientes Disponibles{% endblock %}
+
+{% block extrastyle %}
+<link rel="stylesheet" href="{% static 'styleIngredientes.css' %}">
+{% endblock %}
 
 {% block contenido %}
-<h2>Ingredientes Disponibles</h2>
-<div class="lista">
-    <ul>
-        {% for ingrediente in ingredientes %}
-        <li class="item">
-            <a href="{% url 'detail_ingrediente' ingrediente.id %}">
-                <div class="ingrediente-info">
-                    <h3>{{ ingrediente.nombre }}</h3>
-                    <p><strong>Categoría:</strong> {{ ingrediente.categoria }}</p>
-                </div>
-            </a>
-        </li>
-        {% empty %}
-        <li>No hay ingredientes disponibles.</li>
-        {% endfor %}
-    </ul>
-</div>
+<h2 class="section-title">Ingredientes Disponibles</h2>
 
-<a href="{% url 'index' %}" class="btn-volver">Volver al Inicio</a>
+<div class="ingredients-container">
+    {% for ingrediente in ingredientes %}
+    <div class="ingredient-card">
+        <div class="ingredient-image">
+            <img src="{{ ingrediente.imagen.url }}" alt="{{ ingrediente.nombre }}">
+        </div>
+        <h3>{{ ingrediente.nombre }}</h3>
+        <p><strong>Categoría:</strong> {{ ingrediente.categoria }}</p>
+        <a href="{% url 'detail_ingrediente' ingrediente.id %}" class="btn-ingrediente">Ver Recetas</a>
+    </div>
+    {% empty %}
+    <p>No hay ingredientes disponibles.</p>
+    {% endfor %}
+</div>
 {% endblock %}

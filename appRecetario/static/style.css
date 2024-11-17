@@ -488,4 +488,19 @@ body {
 .register-footer a:hover {
     color: #004d40;
 }
+.btn-volver {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: #00796b !important; /* Color verde */
+    color: white !important;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.btn-volver:hover {
+    background-color: #004d40 !important; /* Verde más oscuro al hacer hover */
+}
 
