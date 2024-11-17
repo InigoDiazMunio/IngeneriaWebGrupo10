@@ -13,15 +13,13 @@
 <div class="ingredients-container">
     {% for ingrediente in ingredientes %}
     <div class="ingredient-card">
-        <div class="ingredient-image">
-            <img src="{{ ingrediente.imagen.url }}" alt="{{ ingrediente.nombre }}">
+        <img src="{{ ingrediente.imagen.url }}" alt="{{ ingrediente.nombre }}" class="ingredient-image">
+        <div class="ingredient-text">
+            <h3 class="ingredient-title">{{ ingrediente.nombre }}</h3>
+            <p class="ingredient-category">Categoría: {{ ingrediente.categoria }}</p>
+            <a href="{% url 'detail_ingrediente' ingrediente.id %}" class="btn-ingrediente">Ver Recetas</a>
         </div>
-        <h3>{{ ingrediente.nombre }}</h3>
-        <p><strong>Categoría:</strong> {{ ingrediente.categoria }}</p>
-        <a href="{% url 'detail_ingrediente' ingrediente.id %}" class="btn-ingrediente">Ver Recetas</a>
     </div>
-    {% empty %}
-    <p>No hay ingredientes disponibles.</p>
     {% endfor %}
 </div>
 {% endblock %}
