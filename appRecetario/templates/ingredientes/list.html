@@ -17,7 +17,7 @@
         <div class="ingredient-text">
             <h3 class="ingredient-title">{{ ingrediente.nombre }}</h3>
             <p class="ingredient-category">Categoría: {{ ingrediente.categoria }}</p>
-            <a href="{% url 'detail_ingrediente' ingrediente.id %}" class="btn-ingrediente">Ver Recetas</a>
+            <a href="{% url 'recetas_por_ingrediente' ingrediente.id %}" class="btn-ingrediente">Ver Recetas</a>
         </div>
     </div>
     {% endfor %}

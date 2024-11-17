@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils import timezone
-import random
+
 class Ingrediente(models.Model):
     nombre = models.CharField(max_length=100)
     categoria = models.CharField(max_length=100)
@@ -21,12 +21,11 @@ class TipoPlato(models.Model):
 class Receta(models.Model):
     nombre = models.CharField(max_length=100)
     tipo_plato = models.ForeignKey('TipoPlato', on_delete=models.CASCADE)
-    ingredientes = models.TextField()
+    ingredientes = models.ManyToManyField('Ingrediente')  # Cambiado a ManyToManyField
     imagen = models.ImageField(upload_to='recetas/', blank=True, null=True)
 
     def __str__(self):
         return self.nombre
-
 
 
 class Inspiracion(models.Model):

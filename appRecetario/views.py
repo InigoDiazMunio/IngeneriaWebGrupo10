@@ -115,3 +115,11 @@ def detail_ingrediente(request, pk):
     recetas = Receta.objects.filter(ingredientes__icontains=ingrediente.nombre)
     return render(request, 'ingredientes/detail_ingrediente.html', {'ingrediente': ingrediente, 'recetas': recetas})
 
+def recetas_por_ingrediente(request, ingrediente_id):
+    ingrediente = get_object_or_404(Ingrediente, id=ingrediente_id)
+    recetas = Receta.objects.filter(ingredientes__nombre__icontains=ingrediente.nombre)
+    context = {
+        'ingrediente': ingrediente,
+        'recetas': recetas
+    }
+    return render(request, 'recetas_por_ingrediente.html', context)

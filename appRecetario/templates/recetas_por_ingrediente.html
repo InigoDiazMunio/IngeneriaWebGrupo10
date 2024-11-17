@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo %}Recetas con {{ ingrediente.nombre }}{% endblock %}
+
+{% block extrastyle %}
+<link rel="stylesheet" href="{% static 'styleRecetasPorIngrediente.css' %}">
+{% endblock %}
+
+{% block contenido %}
+<h2>Recetas con {{ ingrediente.nombre }}</h2>
+
+<div class="recipes-container">
+    {% if recetas %}
+        {% for receta in recetas %}
+            <a href="{% url 'detail_receta' receta.id %}" class="recipe-card">
+                <div class="image-wrapper">
+                    <img src="{{ receta.imagen.url }}" alt="{{ receta.nombre }}" class="recipe-image">
+                </div>
+                <div class="recipe-info">
+                    <h3>{{ receta.nombre }}</h3>
+                    <p class="recipe-type">Tipo de Plato: {{ receta.tipo_plato.nombre }}</p>
+                </div>
+            </a>
+        {% endfor %}
+    {% else %}
+        <p>No hay recetas disponibles con este ingrediente.</p>
+    {% endif %}
+</div>
+{% endblock %}
