@@ -1,6 +1,4 @@
 {% extends "base.html" %}
-{% load static %}
-
 {% block titulo %}Inicio - Recipes Store{% endblock %}
 
 {% block contenido %}
@@ -11,27 +9,8 @@
     <div class="recipe-details">
         <p class="inspiration">Inspiración de la Semana</p>
         <h1 class="recipe-title">{{ plato_destacado.nombre }}</h1>
-        <p class="author">{{ plato_destacado.descripcion }}</p>
+        <p class="description">{{ plato_destacado.descripcion }}</p>
         <p class="likes">❤️ 2.7k</p>
-    </div>
-</div>
-
-<!-- Últimas Recetas -->
-<div class="latest-recipes">
-    <h2>Nuestras Recetas Más Recientes</h2>
-    <div class="recipes-container">
-        {% for receta in recetas %}
-        <div class="recipe-card">
-            <a href="{% url 'detail_receta' receta.id %}">
-                <img src="{{ receta.imagen.url }}" alt="{{ receta.nombre }}">
-                <div class="recipe-info">
-                    <h3>{{ receta.nombre }}</h3>
-                    <p>{{ receta.descripcion|truncatewords:10 }}</p>
-                    <span class="recipe-time">{{ receta.tiempo_preparacion }} min</span>
-                </div>
-            </a>
-        </div>
-        {% endfor %}
     </div>
 </div>
 {% endblock %}

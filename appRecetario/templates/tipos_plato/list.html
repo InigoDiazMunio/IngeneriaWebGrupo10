@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load static %}  <!-- Línea añadida para cargar los archivos estáticos -->
+{% load static %}
 
 {% block titulo %}Tipos de Plato{% endblock %}
 
@@ -8,23 +8,19 @@
 {% endblock %}
 
 {% block contenido %}
-<h2>Tipos de Plato</h2>
-<div class="lista">
-    <ul>
-        {% for tipo_plato in tipos_plato %}
-        <li class="item tipo-plato-item">
-            <a href="{% url 'detail_tipo_plato' tipo_plato.id %}">
-                <div class="tipo-plato-info">
-                    <h3>{{ tipo_plato.nombre }}</h3>
-                    <p>{{ tipo_plato.descripcion }}</p>
-                </div>
-            </a>
-        </li>
-        {% empty %}
-        <li>No hay tipos de plato disponibles.</li>
-        {% endfor %}
-    </ul>
-</div>
+<h2 class="section-title">¿Qué cocinar hoy?</h2>
 
-<a href="{% url 'index' %}" class="btn-volver">Volver al Inicio</a>
+<div class="categories-container">
+    {% for tipo_plato in tipos_plato %}
+    <a href="{% url 'detail_tipo_plato' tipo_plato.id %}" class="category-card-rectangular">
+        <div class="category-image-rectangular">
+            <img src="{{ tipo_plato.imagen.url }}" alt="{{ tipo_plato.nombre }}">
+        </div>
+        <div class="category-text-rectangular">
+            <h4>{{ tipo_plato.nombre }}</h4>
+            <p>{{ tipo_plato.descripcion|truncatewords:12 }}</p>
+        </div>
+    </a>
+    {% endfor %}
+</div>
 {% endblock %}

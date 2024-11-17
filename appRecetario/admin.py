@@ -20,3 +20,5 @@ class IngredienteAdmin(admin.ModelAdmin):
 @admin.register(TipoPlato)
 class TipoPlatoAdmin(admin.ModelAdmin):
     list_display = ('nombre', 'descripcion')
+
+

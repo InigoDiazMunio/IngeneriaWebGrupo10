@@ -12,23 +12,21 @@
 <p>{{ tipo_plato.descripcion }}</p>
 
 <h3>Recetas de este Tipo de Plato:</h3>
-<div class="recetas-lista">
-    <ul>
-        {% for receta in tipo_plato.receta_set.all %}
-        <li class="receta-item">
-            <a href="{% url 'detail_receta' receta.id %}">
-                <div class="receta-info">
-                    <h3>{{ receta.nombre }}</h3>
-                    <p>Descripción: {{ receta.descripcion }}</p>
-                </div>
-            </a>
-        </li>
-        {% empty %}
-        <li>No hay recetas para este tipo de plato.</li>
-        {% endfor %}
-    </ul>
+<div class="recipes-container">
+    {% for receta in tipo_plato.receta_set.all %}
+    <a href="{% url 'detail_receta' receta.id %}" class="recipe-card-rectangular">
+        <div class="recipe-image-rectangular">
+            <img src="{{ receta.imagen.url }}" alt="{{ receta.nombre }}">
+        </div>
+        <div class="recipe-text-rectangular">
+            <h4>{{ receta.nombre }}</h4>
+            <p>{{ receta.descripcion|truncatewords:10 }}</p>
+        </div>
+    </a>
+    {% empty %}
+    <p>No hay recetas disponibles para este tipo de plato.</p>
+    {% endfor %}
 </div>
 
-<a href="{% url 'list_tipos_plato' %}">Volver a la lista de Tipos de Plato</a>
-<a href="{% url 'index' %}">Volver al Inicio</a>
+<a href="{% url 'list_tipos_plato' %}" class="btn-volver">Volver a la lista de Tipos de Plato</a>
 {% endblock %}

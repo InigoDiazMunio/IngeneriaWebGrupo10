@@ -7,15 +7,10 @@ from django.contrib import messages
 from .forms import UserRegisterForm
 # Vista para la página principal
 def index(request):
-    return render(request, 'index.html')
-
-def home_page(request):
-    # Página principal con datos dinámicos
-    plato_destacado = Receta.objects.first()
-    recetas = Receta.objects.order_by('-fecha_publicacion')[:4]
+    # Selecciona una receta destacada, por ejemplo, la primera receta.
+    plato_destacado = Receta.objects.first()  
     return render(request, 'index.html', {
         'plato_destacado': plato_destacado,
-        'recetas': recetas,
     })
     
 # Vista para listar todas las recetas
@@ -43,6 +38,7 @@ def list_ingredientes(request):
 def list_tipos_plato(request):
     tipos_plato = TipoPlato.objects.all()
     return render(request, 'tipos_plato/list.html', {'tipos_plato': tipos_plato})
+
 
 # Vista para ver los detalles de un tipo de plato específico
 def detail_tipo_plato(request, id):
