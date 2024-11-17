@@ -10,15 +10,14 @@
     {% for receta in recetas %}
     <div class="recipe-card">
         {% if receta.imagen %}
-    <img src="{{ receta.imagen.url }}" alt="{{ receta.nombre }}" class="recipe-image">
-    {% else %}
-    <img src="{% static 'default_image.png' %}" alt="Imagen no disponible" class="recipe-image">
-    {% endif %}
+            <img src="{{ receta.imagen.url }}" alt="{{ receta.nombre }}" class="recipe-image">
+        {% else %}
+            <img src="{% static 'media/default_image.png' %}" alt="Imagen no disponible" class="recipe-image">
+        {% endif %}
 
         <div class="recipe-info">
             <h3 class="recipe-title">{{ receta.nombre }}</h3>
-            <p>Tipo de Plato: {{ receta.tipo.nombre }}</p>
-            <p>Ingredientes: {{ receta.ingredientes.all|join:", " }}</p>
+            <p>Tipo de Plato: {{ receta.tipo_plato }}</p>
         </div>
         <a href="{% url 'detail_receta' receta.id %}" class="btn-recipe">Ver Detalles</a>
     </div>
