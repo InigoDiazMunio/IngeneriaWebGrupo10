@@ -29,9 +29,9 @@ def list_recetas(request):
 
 def detail_receta(request, receta_id):
     receta = get_object_or_404(Receta, id=receta_id)
-    ingredientes = receta.ingredientes.all()
-    return render(request, 'recetas/detail.html', {'receta': receta, 'ingredientes': ingredientes})
-
+    # Dividimos el texto del proceso en párrafos
+    proceso_en_parrafos = receta.proceso.split('\n')
+    return render(request, 'recetas/detail.html', {'receta': receta, 'proceso_parrafos': proceso_en_parrafos})
 # Vista para ver los detalles de un ingrediente específico
 def detail_ingrediente(request, id):
     ingrediente = get_object_or_404(Ingrediente, id=id)

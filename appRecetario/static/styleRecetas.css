@@ -71,5 +71,20 @@ ul {
 }
 
 li {
+ 
     margin-bottom: 5px;
 }
+.ingredient-list {
+    list-style: none; /* Elimina los puntos de la lista */
+    padding: 0; /* Quita el margen izquierdo */
+}
+
+.ingredient-list li {
+    margin-bottom: 10px; /* Espaciado entre ingredientes */
+}
+
+.recipe-process p {
+    margin-bottom: px; /* Espaciado entre párrafos */
+    line-height: 1.6; /* Mejora la legibilidad */
+}
+

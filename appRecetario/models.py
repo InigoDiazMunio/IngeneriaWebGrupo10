@@ -24,7 +24,7 @@ class Receta(models.Model):
     ingredientes = models.ManyToManyField('Ingrediente')  
     imagen = models.ImageField(upload_to='recetas/', blank=True, null=True)
     descripcion = models.TextField(blank=True, null=True)  
-
+    proceso = models.TextField(null=True, blank=True)
     def __str__(self):
         return self.nombre
 

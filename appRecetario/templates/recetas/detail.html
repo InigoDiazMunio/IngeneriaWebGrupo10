@@ -14,7 +14,7 @@
 <p><strong>Descripción:</strong> {{ receta.descripcion }}</p>
 
 <h3>Ingredientes:</h3>
-<ul>
+<ul class="ingredient-list">
     {% for ingrediente in receta.ingredientes.all %}
     <li>{{ ingrediente.nombre }} ({{ ingrediente.categoria }})</li>
     {% empty %}
@@ -22,7 +22,13 @@
     {% endfor %}
 </ul>
 
+<h3>Proceso de Elaboración:</h3>
+<div class="recipe-process">
+    {% for paragraph in proceso_parrafos %}
+    <p>{{ paragraph }}</p>
+    {% endfor %}
+</div>
+
 <a href="{% url 'list_recetas' %}" class="btn">Volver a la lista de recetas</a>
 <a href="{% url 'index' %}" class="btn">Volver al Inicio</a>
-
 {% endblock %}
