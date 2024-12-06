@@ -10,9 +10,9 @@
 {% block contenido %}
 <h2 class="section-title">Ingredientes Disponibles</h2>
 
-<div class="ingredients-container">
+<div id="ingredients-container" class="ingredients-container">
     {% for ingrediente in ingredientes %}
-    <div class="ingredient-card">
+    <div id="ingredient-{{ ingrediente.id }}" class="ingredient-card">
         <img src="{{ ingrediente.imagen.url }}" alt="{{ ingrediente.nombre }}" class="ingredient-image">
         <div class="ingredient-text">
             <h3 class="ingredient-title">{{ ingrediente.nombre }}</h3>
@@ -22,4 +22,8 @@
     </div>
     {% endfor %}
 </div>
+
+<button id="cargar-mas-ingredientes" data-offset="10" class="btn-ingrediente">Cargar más ingredientes</button>
+
+
 {% endblock %}

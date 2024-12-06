@@ -10,9 +10,9 @@
 {% block contenido %}
 <h2 class="section-title">¿Qué cocinar hoy?</h2>
 
-<div class="categories-container">
+<div id="categories-container" class="categories-container">
     {% for tipo_plato in tipos_plato %}
-    <a href="{% url 'detail_tipo_plato' tipo_plato.id %}" class="category-card-rectangular">
+    <a href="{% url 'detail_tipo_plato' tipo_plato.id %}" id="tipo-plato-{{ tipo_plato.id }}" class="category-card-rectangular">
         <div class="category-image-rectangular">
             {% if tipo_plato.imagen %}
                 <img src="{{ tipo_plato.imagen.url }}" alt="{{ tipo_plato.nombre }}">
@@ -27,4 +27,8 @@
     </a>
     {% endfor %}
 </div>
+
+<button id="cargar-mas-tipos-plato" data-offset="10" class="btn-ingrediente">Cargar más tipos de plato</button>
+
+
 {% endblock %}

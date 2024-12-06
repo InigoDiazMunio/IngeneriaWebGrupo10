@@ -23,7 +23,9 @@ urlpatterns = [
     path('logout/', views.logout_view, name='logout'),
     path('ingredientes/<int:pk>/', views.detail_ingrediente, name='detail_ingrediente'),
     path('admin/', admin.site.urls),  
-
+    path('ingredientes/cargar-mas/', views.cargar_mas_ingredientes, name='cargar_mas_ingredientes'),
+    path('recetas/cargar-mas/', views.cargar_mas_recetas, name='cargar_mas_recetas'),
+    path('tipos-plato/cargar-mas/', views.cargar_mas_tipos_plato, name='cargar_mas_tipos_plato'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # Configuración para archivos estáticos y de medios

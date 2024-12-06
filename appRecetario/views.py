@@ -8,6 +8,7 @@ from .forms import UserRegisterForm
 from django.shortcuts import render, get_object_or_404
 from django.shortcuts import render
 from .models import TipoPlato, Receta
+from django.http import JsonResponse
 
 def index(request):
     # Selecciona un tipo de plato específico, cambia el nombre si es necesario
@@ -123,3 +124,78 @@ def recetas_por_ingrediente(request, ingrediente_id):
         'recetas': recetas
     }
     return render(request, 'recetas_por_ingrediente.html', context)
+
+
+def cargar_mas_ingredientes(request):
+    offset = int(request.GET.get('offset', 0))  # Obtiene el offset actual
+    limit = 10  # Define el tamaño del bloque
+    ingredientes = Ingrediente.objects.all()[offset:offset + limit]  # Selecciona un rango de ingredientes
+
+    # Prepara la respuesta en formato JSON
+    data = {
+        "ingredientes": [
+            {
+                "id": ingrediente.id,
+                "nombre": ingrediente.nombre,
+                "imagen": ingrediente.imagen.url if ingrediente.imagen else "",
+                "categoria": ingrediente.categoria,
+            }
+            for ingrediente in ingredientes
+        ]
+    }
+    return JsonResponse(data)
+
+
+
+def list_ingredientes(request):
+    # Devuelve solo los primeros 10 ingredientes
+    ingredientes = Ingrediente.objects.all()[:10]
+    return render(request, 'ingredientes/list.html', {'ingredientes': ingredientes})
+
+
+
+def list_tipos_plato(request):
+    # Devuelve solo los primeros 10 tipos de plato
+    tipos_plato = TipoPlato.objects.all()[:10]
+    return render(request, 'tipos_plato/list.html', {'tipos_plato': tipos_plato})
+
+def list_recetas(request):
+    # Devuelve solo las primeras 10 recetas
+    recetas = Receta.objects.all()[:10]
+    return render(request, 'recetas/list.html', {'recetas': recetas})
+
+def cargar_mas_tipos_plato(request):
+    offset = int(request.GET.get('offset', 0))
+    limit = 10
+    tipos_plato = TipoPlato.objects.all()[offset:offset + limit]
+
+    data = {
+        "tipos_plato": [
+            {
+                "id": tipo.id,
+                "nombre": tipo.nombre,
+                "descripcion": tipo.descripcion,
+                "imagen": tipo.imagen.url if tipo.imagen else "",
+            }
+            for tipo in tipos_plato
+        ]
+    }
+    return JsonResponse(data)
+
+def cargar_mas_recetas(request):
+    offset = int(request.GET.get('offset', 0))
+    limit = 10
+    recetas = Receta.objects.all()[offset:offset + limit]
+
+    data = {
+        "recetas": [
+            {
+                "id": receta.id,
+                "nombre": receta.nombre,
+                "imagen": receta.imagen.url if receta.imagen else "",
+                "tipo_plato": receta.tipo_plato.nombre if receta.tipo_plato else "",
+            }
+            for receta in recetas
+        ]
+    }
+    return JsonResponse(data)

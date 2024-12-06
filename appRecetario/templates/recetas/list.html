@@ -5,24 +5,25 @@
 {% endblock %}
 
 {% block contenido %}
-<h2>Recetas Disponibles</h2>
-<div class="recipes-container">
+<h2 class="section-title">Recetas Disponibles</h2>
+
+<div id="recipes-container" class="recipes-container">
     {% for receta in recetas %}
-    <div class="recipe-card">
+    <div id="recipe-{{ receta.id }}" class="recipe-card">
         {% if receta.imagen %}
             <img src="{{ receta.imagen.url }}" alt="{{ receta.nombre }}" class="recipe-image">
         {% else %}
             <img src="{% static 'media/default_image.png' %}" alt="Imagen no disponible" class="recipe-image">
         {% endif %}
-
         <div class="recipe-info">
             <h3 class="recipe-title">{{ receta.nombre }}</h3>
-            <p>Tipo de Plato: {{ receta.tipo_plato }}</p>
+            <p>Tipo de Plato: {{ receta.tipo_plato.nombre }}</p>
         </div>
         <a href="{% url 'detail_receta' receta.id %}" class="btn-recipe">Ver Detalles</a>
     </div>
-    {% empty %}
-    <p>No hay recetas disponibles.</p>
     {% endfor %}
 </div>
+
+<button id="cargar-mas-recetas" data-offset="10" class="btn-recipe">Cargar más recetas</button>
+
 {% endblock %}
