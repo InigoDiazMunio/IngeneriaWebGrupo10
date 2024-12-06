@@ -1,14 +1,15 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
-{% block titulo %}Tipos de Plato{% endblock %}
+{% block titulo %}{% trans "Tipos de Plato" %}{% endblock %}
 
 {% block extrastyle %}
 <link rel="stylesheet" href="{% static 'styleDetalles.css' %}">
 {% endblock %}
 
 {% block contenido %}
-<h2 class="section-title">¿Qué cocinar hoy?</h2>
+<h2 class="section-title">{% trans "¿Qué cocinar hoy?" %}</h2>
 
 <div id="categories-container" class="categories-container">
     {% for tipo_plato in tipos_plato %}
@@ -17,7 +18,7 @@
             {% if tipo_plato.imagen %}
                 <img src="{{ tipo_plato.imagen.url }}" alt="{{ tipo_plato.nombre }}">
             {% else %}
-                <img src="{% static 'images/default.png' %}" alt="Imagen no disponible">
+                <img src="{% static 'images/default.png' %}" alt="{% trans "Imagen no disponible" %}">
             {% endif %}
         </div>
         <div class="category-text-rectangular">
@@ -28,7 +29,5 @@
     {% endfor %}
 </div>
 
-<button id="cargar-mas-tipos-plato" data-offset="10" class="btn-ingrediente">Cargar más tipos de plato</button>
-
-
+<button id="cargar-mas-tipos-plato" data-offset="10" class="btn-ingrediente">{% trans "Cargar más tipos de plato" %}</button>
 {% endblock %}

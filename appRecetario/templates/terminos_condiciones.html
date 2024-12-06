@@ -1,38 +1,39 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block extrastyle %}
 <link rel="stylesheet" href="{% static 'styleContacto.css' %}">
 {% endblock %}
 
-{% block titulo %}Términos y Condiciones{% endblock %}
+{% block titulo %}{% trans "Términos y Condiciones" %}{% endblock %}
 
 {% block contenido %}
 <div class="contacto-container">
-    <h2 class="contacto-title">Términos y Condiciones</h2>
+    <h2 class="contacto-title">{% trans "Términos y Condiciones" %}</h2>
     <p>
-        Bienvenido a Recipes Store. Al utilizar nuestro sitio web para buscar, compartir y disfrutar recetas, aceptas los siguientes términos y condiciones. Por favor, léelos cuidadosamente antes de usar nuestros servicios.
+        {% trans "Bienvenido a Recipes Store. Al utilizar nuestro sitio web para buscar, compartir y disfrutar recetas, aceptas los siguientes términos y condiciones. Por favor, léelos cuidadosamente antes de usar nuestros servicios." %}
     </p>
-    <h3>Uso del sitio</h3>
+    <h3>{% trans "Uso del sitio" %}</h3>
     <p>
-        Recipes Store está diseñado para ayudarte a descubrir y compartir recetas. El contenido publicado es para uso personal y no comercial. Queda estrictamente prohibido reproducir, distribuir o modificar las recetas sin el consentimiento de sus respectivos autores.
+        {% trans "Recipes Store está diseñado para ayudarte a descubrir y compartir recetas. El contenido publicado es para uso personal y no comercial. Queda estrictamente prohibido reproducir, distribuir o modificar las recetas sin el consentimiento de sus respectivos autores." %}
     </p>
-    <h3>Contenido generado por usuarios</h3>
+    <h3>{% trans "Contenido generado por usuarios" %}</h3>
     <p>
-        Los usuarios que contribuyan con sus propias recetas o comentarios son responsables de garantizar que el contenido sea original y no infrinja derechos de terceros. Recipes Store se reserva el derecho de eliminar cualquier contenido que viole estas condiciones.
+        {% trans "Los usuarios que contribuyan con sus propias recetas o comentarios son responsables de garantizar que el contenido sea original y no infrinja derechos de terceros. Recipes Store se reserva el derecho de eliminar cualquier contenido que viole estas condiciones." %}
     </p>
-    <h3>Propiedad intelectual</h3>
+    <h3>{% trans "Propiedad intelectual" %}</h3>
     <p>
-        Todas las imágenes, recetas, diseño y código del sitio son propiedad de Recipes Store o de sus respectivos autores. Cualquier uso no autorizado del contenido puede resultar en acciones legales.
+        {% trans "Todas las imágenes, recetas, diseño y código del sitio son propiedad de Recipes Store o de sus respectivos autores. Cualquier uso no autorizado del contenido puede resultar en acciones legales." %}
     </p>
-    <h3>Exclusión de responsabilidad</h3>
+    <h3>{% trans "Exclusión de responsabilidad" %}</h3>
     <p>
-        Las recetas y la información proporcionada en Recipes Store son para fines informativos. No garantizamos resultados específicos ni nos hacemos responsables por errores en las recetas o cualquier daño causado por su uso.
+        {% trans "Las recetas y la información proporcionada en Recipes Store son para fines informativos. No garantizamos resultados específicos ni nos hacemos responsables por errores en las recetas o cualquier daño causado por su uso." %}
     </p>
-    <h3>Modificaciones de los términos</h3>
+    <h3>{% trans "Modificaciones de los términos" %}</h3>
     <p>
-        Recipes Store se reserva el derecho de actualizar estos términos y condiciones en cualquier momento. Las modificaciones serán efectivas a partir de su publicación en esta página.
+        {% trans "Recipes Store se reserva el derecho de actualizar estos términos y condiciones en cualquier momento. Las modificaciones serán efectivas a partir de su publicación en esta página." %}
     </p>
-    <a href="{% url 'index' %}" class="btn-volver">Volver al Inicio</a>
+    <a href="{% url 'index' %}" class="btn-volver">{% trans "Volver al Inicio" %}</a>
 </div>
 {% endblock %}

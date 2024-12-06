@@ -9,6 +9,8 @@ from django.shortcuts import render, get_object_or_404
 from django.shortcuts import render
 from .models import TipoPlato, Receta
 from django.http import JsonResponse
+from .forms import RecetaForm, IngredienteForm, TipoPlatoForm
+
 
 def index(request):
     # Selecciona un tipo de plato específico, cambia el nombre si es necesario
@@ -199,3 +201,37 @@ def cargar_mas_recetas(request):
         ]
     }
     return JsonResponse(data)
+
+
+# Vista para agregar una nueva receta
+def add_receta(request):
+    if request.method == 'POST':
+        form = RecetaForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('list_recetas')  # Redirige a la lista de recetas
+    else:
+        form = RecetaForm()
+    return render(request, 'recetas/form.html', {'form': form})
+
+# Vista para agregar un nuevo ingrediente
+def add_ingrediente(request):
+    if request.method == 'POST':
+        form = IngredienteForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('list_ingredientes')  # Redirige a la lista de ingredientes
+    else:
+        form = IngredienteForm()
+    return render(request, 'ingredientes/form.html', {'form': form})
+
+# Vista para agregar un nuevo tipo de plato
+def add_tipo_plato(request):
+    if request.method == 'POST':
+        form = TipoPlatoForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('list_tipos_plato')  # Redirige a la lista de tipos de plato
+    else:
+        form = TipoPlatoForm()
+    return render(request, 'tipos_plato/form.html', {'form': form})

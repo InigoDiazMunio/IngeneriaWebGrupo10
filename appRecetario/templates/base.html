@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
+    {% load i18n %} <!-- Cargar el módulo de traducción -->
     <!-- Archivo principal de estilos -->
     <link rel="stylesheet" href="{% static 'style.css' %}">
     {% block extrastyle %}{% endblock %}
-    <title>{% block titulo %}Recipes Store{% endblock %}</title>
+    <title>{% block titulo %}{% trans "Recipes Store" %}{% endblock %}</title>
 </head>
 <body class="{% block body_class %}{% endblock %}">
 
@@ -15,25 +16,44 @@
     <header class="main-header">
         <div class="container">
             <div class="logo">
-                <h1><a href="{% url 'index' %}">Recipes Store</a></h1>
+                <h1><a href="{% url 'index' %}">{% trans "Recipes Store" %}</a></h1>
             </div>
             <nav class="main-nav">
                 <ul>
-                    <li><a href="{% url 'list_recetas' %}">Recetas</a></li>
-                    <li><a href="{% url 'list_ingredientes' %}">Ingredientes</a></li>
-                    <li><a href="{% url 'list_tipos_plato' %}">Tipos de Platos</a></li>
-                    <li><a href="{% url 'contacto' %}">Contacto</a></li>
+                    <li><a href="{% url 'list_recetas' %}">{% trans "Recetas" %}</a></li>
+                    <li><a href="{% url 'list_ingredientes' %}">{% trans "Ingredientes" %}</a></li>
+                    <li><a href="{% url 'list_tipos_plato' %}">{% trans "Tipos de Platos" %}</a></li>
+                    <li><a href="{% url 'contacto' %}">{% trans "Contacto" %}</a></li>
+                    <li><a href="{% url 'add_receta' %}">{% trans "Agregar Receta" %}</a></li>
+                    <li><a href="{% url 'add_ingrediente' %}">{% trans "Agregar Ingrediente" %}</a></li>
+                    <li><a href="{% url 'add_tipo_plato' %}">{% trans "Agregar Tipo de Plato" %}</a></li>
                 </ul>
             </nav>
             <div class="auth-buttons">
                 {% if user.is_authenticated %}
-                    <span>Bienvenido, {{ user.username }}</span>
-                    <a href="{% url 'logout' %}" class="btn-logout">Cerrar Sesión</a>
+                    <span>{% trans "Bienvenido," %} {{ user.username }}</span>
+                    <a href="{% url 'logout' %}" class="btn-logout">{% trans "Cerrar Sesión" %}</a>
                 {% else %}
-                    <a href="{% url 'login' %}" class="btn-login">Iniciar Sesión</a>
-                    <a href="{% url 'register' %}" class="btn-signup">Registrarse</a>
+                    <a href="{% url 'login' %}" class="btn-login">{% trans "Iniciar Sesión" %}</a>
+                    <a href="{% url 'register' %}" class="btn-signup">{% trans "Registrarse" %}</a>
                 {% endif %}
             </div>
+            <div class="language-switcher">
+                <form action="{% url 'set_language' %}" method="post">
+                    {% csrf_token %}
+                    <select name="language" onchange="this.form.submit()">
+                        {% get_current_language as LANGUAGE_CODE %}
+                        {% get_available_languages as LANGUAGES %}
+                        {% for lang_code, lang_name in LANGUAGES %}
+                            <option value="{{ lang_code }}" {% if lang_code == LANGUAGE_CODE %}selected{% endif %}>
+                                {{ lang_name }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </form>
+            </div>
+
+            
         </div>
     </header>
 
@@ -46,10 +66,10 @@
     <!-- Pie de página -->
     <footer class="main-footer">
         <div class="container">
-            <p>&copy; <span id="anyoMostrado"></span> Recipes Store</p>
+            <p>&copy; <span id="anyoMostrado"></span> {% trans "Recipes Store" %}</p>
             <ul>
-                <li><a href="{% url 'politica_privacidad' %}">Política de Privacidad</a></li>
-                <li><a href="{% url 'terminos_condiciones' %}">Términos y Condiciones</a></li>
+                <li><a href="{% url 'politica_privacidad' %}">{% trans "Política de Privacidad" %}</a></li>
+                <li><a href="{% url 'terminos_condiciones' %}">{% trans "Términos y Condiciones" %}</a></li>
             </ul>
         </div>
     </footer>

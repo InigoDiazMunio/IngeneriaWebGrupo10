@@ -1,5 +1,6 @@
 from pathlib import Path
 import os
+from django.utils.translation import gettext_lazy as _
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -22,6 +23,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',  # Middleware para gestionar idiomas
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -30,7 +32,6 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'appRecetario.urls'
-
 
 TEMPLATES = [
     {
@@ -57,11 +58,20 @@ DATABASES = {
     }
 }
 
-LANGUAGE_CODE = 'en-us'
+# Configuración de idiomas y localización
+LANGUAGE_CODE = 'es'  # Idioma predeterminado (Español)
 
-TIME_ZONE = 'UTC'
+LANGUAGES = [
+    ('en', _('English')),
+    ('es', _('Español')),
+]
 
 USE_I18N = True
+
+LOCALE_PATHS = [os.path.join(BASE_DIR, 'locale')]
+
+
+TIME_ZONE = 'UTC'
 
 USE_TZ = True
 
@@ -76,5 +86,3 @@ LOGIN_REDIRECT_URL = 'index'
 LOGOUT_REDIRECT_URL = 'index'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-

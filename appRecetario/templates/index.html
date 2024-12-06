@@ -1,7 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
+{% load i18n %}
 
-{% block titulo %}Inicio - Recipes Store{% endblock %}
+{% block titulo %}{% trans "Inicio - Recipes Store" %}{% endblock %}
 
 {% block contenido %}
 <!-- Inspiración de la Semana -->
@@ -11,11 +12,11 @@
             {% if tipo_plato.imagen %}
                 <img src="{{ tipo_plato.imagen.url }}" alt="{{ tipo_plato.nombre }}" class="inspiration-image">
             {% else %}
-                <img src="{% static 'media/tipoPlato/default.jpg' %}" alt="Plato Destacado" class="inspiration-image">
+                <img src="{% static 'media/tipoPlato/default.jpg' %}" alt="{% trans 'Plato Destacado' %}" class="inspiration-image">
             {% endif %}
         </div>
         <div class="recipe-details">
-            <p class="inspiration">Inspiración de la Semana</p>
+            <p class="inspiration">{% trans "Inspiración de la Semana" %}</p>
             <h1 class="recipe-title">
                 <a href="{% url 'detail_tipo_plato' tipo_plato.id %}">{{ tipo_plato.nombre }}</a>
             </h1>
@@ -24,10 +25,9 @@
     </div>
 </div>
 
-
 <!-- Últimas Recetas -->
 <div class="latest-recipes">
-    <h2>Nuestras Recetas Más Recientes</h2>
+    <h2>{% trans "Nuestras Recetas Más Recientes" %}</h2>
     <div class="recipes-container">
         {% for receta in recetas %}
         <div class="recipe-card">
@@ -35,7 +35,7 @@
                 {% if receta.imagen %}
                 <img src="{{ receta.imagen.url }}" alt="{{ receta.nombre }}">
                 {% else %}
-                <img src="{% static 'images/default.jpg' %}" alt="Receta sin Imagen">
+                <img src="{% static 'images/default.jpg' %}" alt="{% trans 'Receta sin Imagen' %}">
                 {% endif %}
                 <div class="recipe-info">
                     <h3>{{ receta.nombre }}</h3>

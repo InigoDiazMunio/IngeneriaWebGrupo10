@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block titulo %}Ingredientes Disponibles{% endblock %}
+{% block titulo %}{% trans "Ingredientes Disponibles" %}{% endblock %}
 
 {% block extrastyle %}
 <link rel="stylesheet" href="{% static 'styleIngredientes.css' %}">
 {% endblock %}
 
 {% block contenido %}
-<h2 class="section-title">Ingredientes Disponibles</h2>
+<h2 class="section-title">{% trans "Ingredientes Disponibles" %}</h2>
 
 <div id="ingredients-container" class="ingredients-container">
     {% for ingrediente in ingredientes %}
@@ -16,14 +16,13 @@
         <img src="{{ ingrediente.imagen.url }}" alt="{{ ingrediente.nombre }}" class="ingredient-image">
         <div class="ingredient-text">
             <h3 class="ingredient-title">{{ ingrediente.nombre }}</h3>
-            <p class="ingredient-category">Categoría: {{ ingrediente.categoria }}</p>
-            <a href="{% url 'recetas_por_ingrediente' ingrediente.id %}" class="btn-ingrediente">Ver Recetas</a>
+            <p class="ingredient-category">{% trans "Categoría" %}: {{ ingrediente.categoria }}</p>
+            <a href="{% url 'recetas_por_ingrediente' ingrediente.id %}" class="btn-ingrediente">{% trans "Ver Recetas" %}</a>
         </div>
     </div>
     {% endfor %}
 </div>
 
-<button id="cargar-mas-ingredientes" data-offset="10" class="btn-ingrediente">Cargar más ingredientes</button>
-
+<button id="cargar-mas-ingredientes" data-offset="10" class="btn-ingrediente">{% trans "Cargar más ingredientes" %}</button>
 
 {% endblock %}

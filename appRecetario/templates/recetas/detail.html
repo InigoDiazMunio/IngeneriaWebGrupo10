@@ -1,34 +1,35 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block extrastyle %}
 <link rel="stylesheet" href="{% static 'styleDetalles.css' %}">
 {% endblock %}
 
-{% block titulo %}Detalles de la Receta{% endblock %}
+{% block titulo %}{% trans "Detalles de la Receta" %}{% endblock %}
 
 {% block contenido %}
 <h2>{{ receta.nombre }}</h2>
 
-<p><strong>Tipo de plato:</strong> {{ receta.tipo_plato.nombre }}</p>
-<p><strong>Descripción:</strong> {{ receta.descripcion }}</p>
+<p><strong>{% trans "Tipo de plato" %}:</strong> {{ receta.tipo_plato.nombre }}</p>
+<p><strong>{% trans "Descripción" %}:</strong> {{ receta.descripcion }}</p>
 
-<h3>Ingredientes:</h3>
+<h3>{% trans "Ingredientes" %}:</h3>
 <ul class="ingredient-list">
     {% for ingrediente in receta.ingredientes.all %}
     <li>{{ ingrediente.nombre }} ({{ ingrediente.categoria }})</li>
     {% empty %}
-    <li>No hay ingredientes asociados a esta receta.</li>
+    <li>{% trans "No hay ingredientes asociados a esta receta." %}</li>
     {% endfor %}
 </ul>
 
-<h3>Proceso de Elaboración:</h3>
+<h3>{% trans "Proceso de Elaboración" %}:</h3>
 <div class="recipe-process">
     {% for paragraph in proceso_parrafos %}
     <p>{{ paragraph }}</p>
     {% endfor %}
 </div>
 
-<a href="{% url 'list_recetas' %}" class="btn">Volver a la lista de recetas</a>
-<a href="{% url 'index' %}" class="btn">Volver al Inicio</a>
+<a href="{% url 'list_recetas' %}" class="btn">{% trans "Volver a la lista de recetas" %}</a>
+<a href="{% url 'index' %}" class="btn">{% trans "Volver al Inicio" %}</a>
 {% endblock %}

@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 {% block extrastyle %}
 <link rel="stylesheet" href="{% static 'styleRecetas.css' %}">
 {% endblock %}
 
 {% block contenido %}
-<h2 class="section-title">Recetas Disponibles</h2>
+<h2 class="section-title">{% trans "Recetas Disponibles" %}</h2>
 
 <div id="recipes-container" class="recipes-container">
     {% for receta in recetas %}
@@ -13,17 +14,17 @@
         {% if receta.imagen %}
             <img src="{{ receta.imagen.url }}" alt="{{ receta.nombre }}" class="recipe-image">
         {% else %}
-            <img src="{% static 'media/default_image.png' %}" alt="Imagen no disponible" class="recipe-image">
+            <img src="{% static 'media/default_image.png' %}" alt="{% trans "Imagen no disponible" %}" class="recipe-image">
         {% endif %}
         <div class="recipe-info">
             <h3 class="recipe-title">{{ receta.nombre }}</h3>
-            <p>Tipo de Plato: {{ receta.tipo_plato.nombre }}</p>
+            <p>{% trans "Tipo de Plato" %}: {{ receta.tipo_plato.nombre }}</p>
         </div>
-        <a href="{% url 'detail_receta' receta.id %}" class="btn-recipe">Ver Detalles</a>
+        <a href="{% url 'detail_receta' receta.id %}" class="btn-recipe">{% trans "Ver Detalles" %}</a>
     </div>
     {% endfor %}
 </div>
 
-<button id="cargar-mas-recetas" data-offset="10" class="btn-recipe">Cargar más recetas</button>
+<button id="cargar-mas-recetas" data-offset="10" class="btn-recipe">{% trans "Cargar más recetas" %}</button>
 
 {% endblock %}

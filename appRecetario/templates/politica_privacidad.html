@@ -1,48 +1,49 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block extrastyle %}
 <link rel="stylesheet" href="{% static 'styleContacto.css' %}">
 {% endblock %}
 
-{% block titulo %}Política de Privacidad{% endblock %}
+{% block titulo %}{% trans "Política de Privacidad" %}{% endblock %}
 
 {% block contenido %}
 <div class="contacto-container">
-    <h2 class="contacto-title">Política de Privacidad</h2>
+    <h2 class="contacto-title">{% trans "Política de Privacidad" %}</h2>
     <p>
-        En Recipes Store, valoramos tu privacidad y nos comprometemos a protegerla. Esta política describe cómo recopilamos, usamos y protegemos tu información personal al usar nuestro sitio web de recetas.
+        {% trans "En Recipes Store, valoramos tu privacidad y nos comprometemos a protegerla. Esta política describe cómo recopilamos, usamos y protegemos tu información personal al usar nuestro sitio web de recetas." %}
     </p>
-    <h3>Recopilación de información</h3>
+    <h3>{% trans "Recopilación de información" %}</h3>
     <p>
-        Recopilamos información que nos proporcionas directamente, como tu nombre, dirección de correo electrónico y cualquier comentario o receta que compartas en nuestro sitio. También podemos recopilar información sobre cómo utilizas nuestro sitio para mejorar tu experiencia.
+        {% trans "Recopilamos información que nos proporcionas directamente, como tu nombre, dirección de correo electrónico y cualquier comentario o receta que compartas en nuestro sitio. También podemos recopilar información sobre cómo utilizas nuestro sitio para mejorar tu experiencia." %}
     </p>
-    <h3>Uso de la información</h3>
+    <h3>{% trans "Uso de la información" %}</h3>
     <p>
-        La información que recopilamos se utiliza para:
+        {% trans "La información que recopilamos se utiliza para:" %}
         <ul>
-            <li>Publicar tus recetas y comentarios en nuestro sitio web.</li>
-            <li>Responder a tus consultas y comentarios.</li>
-            <li>Personalizar tu experiencia y sugerir recetas relevantes.</li>
-            <li>Mejorar la funcionalidad y el contenido de nuestro sitio web.</li>
+            <li>{% trans "Publicar tus recetas y comentarios en nuestro sitio web." %}</li>
+            <li>{% trans "Responder a tus consultas y comentarios." %}</li>
+            <li>{% trans "Personalizar tu experiencia y sugerir recetas relevantes." %}</li>
+            <li>{% trans "Mejorar la funcionalidad y el contenido de nuestro sitio web." %}</li>
         </ul>
     </p>
-    <h3>Compartir información</h3>
+    <h3>{% trans "Compartir información" %}</h3>
     <p>
-        No compartimos tu información personal con terceros para fines comerciales. Sin embargo, podemos compartirla si es necesario para cumplir con requisitos legales, proteger nuestros derechos o mejorar el servicio a través de herramientas tecnológicas de terceros (como analíticas web).
+        {% trans "No compartimos tu información personal con terceros para fines comerciales. Sin embargo, podemos compartirla si es necesario para cumplir con requisitos legales, proteger nuestros derechos o mejorar el servicio a través de herramientas tecnológicas de terceros (como analíticas web)." %}
     </p>
-    <h3>Cookies</h3>
+    <h3>{% trans "Cookies" %}</h3>
     <p>
-        Utilizamos cookies para mejorar tu experiencia al navegar en nuestro sitio. Las cookies nos ayudan a personalizar el contenido, recordar tus preferencias y analizar el tráfico del sitio. Puedes desactivar las cookies en la configuración de tu navegador, pero esto podría afectar algunas funcionalidades del sitio.
+        {% trans "Utilizamos cookies para mejorar tu experiencia al navegar en nuestro sitio. Las cookies nos ayudan a personalizar el contenido, recordar tus preferencias y analizar el tráfico del sitio. Puedes desactivar las cookies en la configuración de tu navegador, pero esto podría afectar algunas funcionalidades del sitio." %}
     </p>
-    <h3>Seguridad de la información</h3>
+    <h3>{% trans "Seguridad de la información" %}</h3>
     <p>
-        Nos comprometemos a proteger tu información personal. Implementamos medidas de seguridad para evitar accesos no autorizados, pérdidas o alteraciones de datos.
+        {% trans "Nos comprometemos a proteger tu información personal. Implementamos medidas de seguridad para evitar accesos no autorizados, pérdidas o alteraciones de datos." %}
     </p>
-    <h3>Tus derechos</h3>
+    <h3>{% trans "Tus derechos" %}</h3>
     <p>
-        Tienes derecho a acceder, corregir o eliminar tu información personal en cualquier momento. Si deseas ejercer estos derechos, contáctanos a través de nuestro formulario de contacto.
+        {% trans "Tienes derecho a acceder, corregir o eliminar tu información personal en cualquier momento. Si deseas ejercer estos derechos, contáctanos a través de nuestro formulario de contacto." %}
     </p>
-    <a href="{% url 'index' %}" class="btn-volver">Volver al Inicio</a>
+    <a href="{% url 'index' %}" class="btn-volver">{% trans "Volver al Inicio" %}</a>
 </div>
 {% endblock %}

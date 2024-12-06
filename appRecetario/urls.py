@@ -3,11 +3,13 @@ from django.contrib import admin
 from appRecetario import views
 from django.conf import settings
 from django.conf.urls.static import static
+from django.conf.urls.i18n import i18n_patterns
+from django.conf.urls.i18n import set_language
 
-urlpatterns = [
-    path('', views.index, name='index'),  
-    path('recetas/', views.list_recetas, name='list_recetas'), 
-    path('recetas/<int:receta_id>/', views.detail_receta, name='detail_receta'), 
+from .views import add_receta, add_ingrediente, add_tipo_plato
+
+urlpatterns = i18n_patterns(
+    path('', views.index, name='index'),
     path('recetas/', views.list_recetas, name='list_recetas'),
     path('recetas/<int:receta_id>/', views.detail_receta, name='detail_receta'),
     path('ingredientes/', views.list_ingredientes, name='list_ingredientes'),
@@ -22,14 +24,17 @@ urlpatterns = [
     path('login/', views.login_view, name='login'),
     path('logout/', views.logout_view, name='logout'),
     path('ingredientes/<int:pk>/', views.detail_ingrediente, name='detail_ingrediente'),
-    path('admin/', admin.site.urls),  
+    path('admin/', admin.site.urls),
     path('ingredientes/cargar-mas/', views.cargar_mas_ingredientes, name='cargar_mas_ingredientes'),
     path('recetas/cargar-mas/', views.cargar_mas_recetas, name='cargar_mas_recetas'),
     path('tipos-plato/cargar-mas/', views.cargar_mas_tipos_plato, name='cargar_mas_tipos_plato'),
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('recetas/agregar/', add_receta, name='add_receta'),
+    path('ingredientes/agregar/', add_ingrediente, name='add_ingrediente'),
+    path('tipos-plato/agregar/', add_tipo_plato, name='add_tipo_plato'),
+    path('set_language/', include('django.conf.urls.i18n')),  # Incluye el set_language aquí
+) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # Configuración para archivos estáticos y de medios
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS[0])
-

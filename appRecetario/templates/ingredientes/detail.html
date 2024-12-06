@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="{% static 'styleDetalles.css' %}">
 {% endblock %}
 
-{% block titulo %}Detalles del Ingrediente{% endblock %}
+{% block titulo %}{% trans "Detalles del Ingrediente" %}{% endblock %}
 
 {% block contenido %}
 <h2>{{ ingrediente.nombre }}</h2>
@@ -13,9 +13,9 @@
     <img src="{{ ingrediente.imagen.url }}" alt="{{ ingrediente.nombre }}" class="ingrediente-imagen">
 </div>
 
-<p><strong>Categoría:</strong> {{ ingrediente.categoria }}</p>
+<p><strong>{% trans "Categoría:" %}</strong> {{ ingrediente.categoria }}</p>
 
-<h3>Recetas que contienen este ingrediente:</h3>
+<h3>{% trans "Recetas que contienen este ingrediente:" %}</h3>
 
 <!-- Lista de recetas que contienen el ingrediente -->
 <div class="recetas-lista">
@@ -28,20 +28,20 @@
                     <img src="{{ receta.imagen.url }}" alt="{{ receta.nombre }}" class="receta-imagen">
                     <div class="receta-info">
                         <h3>{{ receta.nombre }}</h3>
-                        <p>Tipo de Plato: {{ receta.tipo_plato.nombre }}</p>
+                        <p>{% trans "Tipo de Plato:" %} {{ receta.tipo_plato.nombre }}</p>
                     </div>
                 </div>
             </a>
         </li>
         {% empty %}
-        <li>No hay recetas que contengan este ingrediente.</li>
+        <li>{% trans "No hay recetas que contengan este ingrediente." %}</li>
         {% endfor %}
     </ul>
 </div>
 
 <!-- Botones de navegación -->
 <div class="botones-navegacion">
-    <a href="{% url 'list_ingredientes' %}" class="btn-volver">Volver a la lista de Ingredientes</a>
-    <a href="{% url 'index' %}" class="btn-volver">Volver al Inicio</a>
+    <a href="{% url 'list_ingredientes' %}" class="btn-volver">{% trans "Volver a la lista de Ingredientes" %}</a>
+    <a href="{% url 'index' %}" class="btn-volver">{% trans "Volver al Inicio" %}</a>
 </div>
 {% endblock %}

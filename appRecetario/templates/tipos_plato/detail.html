@@ -1,17 +1,18 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block extrastyle %}
 <link rel="stylesheet" href="{% static 'styleDetalles.css' %}">
 {% endblock %}
 
-{% block titulo %}Detalles del Tipo de Plato{% endblock %}
+{% block titulo %}{% trans "Detalles del Tipo de Plato" %}{% endblock %}
 
 {% block contenido %}
 <h2>{{ tipo_plato.nombre }}</h2>
 <p>{{ tipo_plato.descripcion }}</p>
 
-<h3>Recetas de este Tipo de Plato:</h3>
+<h3>{% trans "Recetas de este Tipo de Plato" %}:</h3>
 <div class="recipes-container">
     {% for receta in tipo_plato.receta_set.all %}
     <a href="{% url 'detail_receta' receta.id %}" class="recipe-card-rectangular">
@@ -19,7 +20,7 @@
             {% if receta.imagen %}
                 <img src="{{ receta.imagen.url }}" alt="{{ receta.nombre }}">
             {% else %}
-                <img src="{% static 'images/default.jpg' %}" alt="Imagen no disponible">
+                <img src="{% static 'images/default.jpg' %}" alt="{% trans "Imagen no disponible" %}">
             {% endif %}
         </div>
         <div class="recipe-text-rectangular">
@@ -28,9 +29,9 @@
         </div>
     </a>
     {% empty %}
-    <p>No hay recetas disponibles para este tipo de plato.</p>
+    <p>{% trans "No hay recetas disponibles para este tipo de plato." %}</p>
     {% endfor %}
 </div>
 
-<a href="{% url 'list_tipos_plato' %}" class="btn-volver">Volver a la lista de Tipos de Plato</a>
+<a href="{% url 'list_tipos_plato' %}" class="btn-volver">{% trans "Volver a la lista de Tipos de Plato" %}</a>
 {% endblock %}
