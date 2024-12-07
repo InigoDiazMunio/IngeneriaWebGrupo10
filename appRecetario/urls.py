@@ -4,7 +4,6 @@ from appRecetario import views
 from django.conf import settings
 from django.conf.urls.static import static
 from django.conf.urls.i18n import i18n_patterns
-from django.conf.urls.i18n import set_language
 
 from .views import add_receta, add_ingrediente, add_tipo_plato
 
@@ -31,8 +30,13 @@ urlpatterns = i18n_patterns(
     path('recetas/agregar/', add_receta, name='add_receta'),
     path('ingredientes/agregar/', add_ingrediente, name='add_ingrediente'),
     path('tipos-plato/agregar/', add_tipo_plato, name='add_tipo_plato'),
-    path('set_language/', include('django.conf.urls.i18n')),  # Incluye el set_language aquí
-) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('set_language/', include('django.conf.urls.i18n')),  # Asegúrate de incluirlo
+)
+
+# Agrega aquí el include de i18n para que las URLs de traducción funcionen.
+urlpatterns += [
+    path('i18n/', include('django.conf.urls.i18n')),
+]
 
 # Configuración para archivos estáticos y de medios
 if settings.DEBUG:

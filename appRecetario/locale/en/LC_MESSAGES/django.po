@@ -1,0 +1,492 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-12-06 16:52+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: .\appRecetario\templates\base.html:11 .\appRecetario\templates\base.html:19
+#: .\appRecetario\templates\base.html:69
+msgid "Recipes Store"
+msgstr ""
+
+#: .\appRecetario\templates\base.html:23
+msgid "Recetas"
+msgstr ""
+
+#: .\appRecetario\templates\base.html:24
+#: .\appRecetario\templates\recetas\detail.html:17
+msgid "Ingredientes"
+msgstr ""
+
+#: .\appRecetario\templates\base.html:25
+msgid "Tipos de Platos"
+msgstr ""
+
+#: .\appRecetario\templates\base.html:26
+#: .\appRecetario\templates\contacto.html:9
+msgid "Contacto"
+msgstr ""
+
+#: .\appRecetario\templates\base.html:27
+#: .\appRecetario\templates\recetas\form.html:6
+#: .\appRecetario\templates\recetas\form.html:10
+msgid "Agregar Receta"
+msgstr ""
+
+#: .\appRecetario\templates\base.html:28
+#: .\appRecetario\templates\ingredientes\form.html:6
+#: .\appRecetario\templates\ingredientes\form.html:10
+msgid "Agregar Ingrediente"
+msgstr ""
+
+#: .\appRecetario\templates\base.html:29
+#: .\appRecetario\templates\tipos_plato\form.html:6
+#: .\appRecetario\templates\tipos_plato\form.html:10
+msgid "Agregar Tipo de Plato"
+msgstr ""
+
+#: .\appRecetario\templates\base.html:34
+msgid "Bienvenido,"
+msgstr ""
+
+#: .\appRecetario\templates\base.html:35
+msgid "Cerrar Sesión"
+msgstr ""
+
+#: .\appRecetario\templates\base.html:37
+#: .\appRecetario\templates\users\login.html:8
+#: .\appRecetario\templates\users\login.html:19
+#: .\appRecetario\templates\users\register.html:28
+msgid "Iniciar Sesión"
+msgstr ""
+
+#: .\appRecetario\templates\base.html:38
+#: .\appRecetario\templates\users\register.html:25
+msgid "Registrarse"
+msgstr ""
+
+#: .\appRecetario\templates\base.html:71
+#: .\appRecetario\templates\politica_privacidad.html:9
+#: .\appRecetario\templates\politica_privacidad.html:13
+msgid "Política de Privacidad"
+msgstr ""
+
+#: .\appRecetario\templates\base.html:72
+#: .\appRecetario\templates\terminos_condiciones.html:9
+#: .\appRecetario\templates\terminos_condiciones.html:13
+msgid "Términos y Condiciones"
+msgstr ""
+
+#: .\appRecetario\templates\contacto.html:13
+msgid "Contáctanos"
+msgstr ""
+
+#: .\appRecetario\templates\contacto.html:15
+msgid ""
+"Si tienes alguna pregunta, no dudes en enviarnos un mensaje. ¡Estamos aquí "
+"para ayudarte!"
+msgstr ""
+
+#: .\appRecetario\templates\contacto.html:19
+msgid "Nombre:"
+msgstr ""
+
+#: .\appRecetario\templates\contacto.html:20
+msgid "Escribe tu nombre"
+msgstr ""
+
+#: .\appRecetario\templates\contacto.html:23
+msgid "Email:"
+msgstr ""
+
+#: .\appRecetario\templates\contacto.html:24
+msgid "Escribe tu email"
+msgstr ""
+
+#: .\appRecetario\templates\contacto.html:27
+msgid "Mensaje:"
+msgstr ""
+
+#: .\appRecetario\templates\contacto.html:28
+msgid "Escribe tu mensaje aquí..."
+msgstr ""
+
+#: .\appRecetario\templates\contacto.html:30
+msgid "Enviar"
+msgstr ""
+
+#: .\appRecetario\templates\contacto.html:33
+#: .\appRecetario\templates\ingredientes\detail.html:46
+#: .\appRecetario\templates\politica_privacidad.html:47
+#: .\appRecetario\templates\recetas\detail.html:34
+#: .\appRecetario\templates\terminos_condiciones.html:37
+msgid "Volver al Inicio"
+msgstr ""
+
+#: .\appRecetario\templates\index.html:5
+msgid "Inicio - Recipes Store"
+msgstr ""
+
+#: .\appRecetario\templates\index.html:15
+msgid "Plato Destacado"
+msgstr ""
+
+#: .\appRecetario\templates\index.html:19
+msgid "Inspiración de la Semana"
+msgstr ""
+
+#: .\appRecetario\templates\index.html:30
+msgid "Nuestras Recetas Más Recientes"
+msgstr ""
+
+#: .\appRecetario\templates\index.html:38
+msgid "Receta sin Imagen"
+msgstr ""
+
+#: .\appRecetario\templates\ingredientes\detail.html:7
+msgid "Detalles del Ingrediente"
+msgstr ""
+
+#: .\appRecetario\templates\ingredientes\detail.html:17
+msgid "Categoría:"
+msgstr ""
+
+#: .\appRecetario\templates\ingredientes\detail.html:19
+msgid "Recetas que contienen este ingrediente:"
+msgstr ""
+
+#: .\appRecetario\templates\ingredientes\detail.html:32
+#: .\appRecetario\templates\recetas_por_ingrediente.html:23
+msgid "Tipo de Plato:"
+msgstr ""
+
+#: .\appRecetario\templates\ingredientes\detail.html:38
+msgid "No hay recetas que contengan este ingrediente."
+msgstr ""
+
+#: .\appRecetario\templates\ingredientes\detail.html:45
+msgid "Volver a la lista de Ingredientes"
+msgstr ""
+
+#: .\appRecetario\templates\ingredientes\form.html:15
+#: .\appRecetario\templates\recetas\form.html:15
+#: .\appRecetario\templates\tipos_plato\form.html:15
+msgid "Guardar"
+msgstr ""
+
+#: .\appRecetario\templates\ingredientes\form.html:18
+#: .\appRecetario\templates\recetas\form.html:18
+#: .\appRecetario\templates\tipos_plato\form.html:18
+msgid "Cancelar"
+msgstr ""
+
+#: .\appRecetario\templates\ingredientes\list.html:5
+#: .\appRecetario\templates\ingredientes\list.html:12
+msgid "Ingredientes Disponibles"
+msgstr ""
+
+#: .\appRecetario\templates\ingredientes\list.html:20
+msgid "Categoría"
+msgstr ""
+
+#: .\appRecetario\templates\ingredientes\list.html:21
+msgid "Ver Recetas"
+msgstr ""
+
+#: .\appRecetario\templates\ingredientes\list.html:27
+msgid "Cargar más ingredientes"
+msgstr ""
+
+#: .\appRecetario\templates\politica_privacidad.html:15
+msgid ""
+"En Recipes Store, valoramos tu privacidad y nos comprometemos a protegerla. "
+"Esta política describe cómo recopilamos, usamos y protegemos tu información "
+"personal al usar nuestro sitio web de recetas."
+msgstr ""
+
+#: .\appRecetario\templates\politica_privacidad.html:17
+msgid "Recopilación de información"
+msgstr ""
+
+#: .\appRecetario\templates\politica_privacidad.html:19
+msgid ""
+"Recopilamos información que nos proporcionas directamente, como tu nombre, "
+"dirección de correo electrónico y cualquier comentario o receta que "
+"compartas en nuestro sitio. También podemos recopilar información sobre cómo "
+"utilizas nuestro sitio para mejorar tu experiencia."
+msgstr ""
+
+#: .\appRecetario\templates\politica_privacidad.html:21
+msgid "Uso de la información"
+msgstr ""
+
+#: .\appRecetario\templates\politica_privacidad.html:23
+msgid "La información que recopilamos se utiliza para:"
+msgstr ""
+
+#: .\appRecetario\templates\politica_privacidad.html:25
+msgid "Publicar tus recetas y comentarios en nuestro sitio web."
+msgstr ""
+
+#: .\appRecetario\templates\politica_privacidad.html:26
+msgid "Responder a tus consultas y comentarios."
+msgstr ""
+
+#: .\appRecetario\templates\politica_privacidad.html:27
+msgid "Personalizar tu experiencia y sugerir recetas relevantes."
+msgstr ""
+
+#: .\appRecetario\templates\politica_privacidad.html:28
+msgid "Mejorar la funcionalidad y el contenido de nuestro sitio web."
+msgstr ""
+
+#: .\appRecetario\templates\politica_privacidad.html:31
+msgid "Compartir información"
+msgstr ""
+
+#: .\appRecetario\templates\politica_privacidad.html:33
+msgid ""
+"No compartimos tu información personal con terceros para fines comerciales. "
+"Sin embargo, podemos compartirla si es necesario para cumplir con requisitos "
+"legales, proteger nuestros derechos o mejorar el servicio a través de "
+"herramientas tecnológicas de terceros (como analíticas web)."
+msgstr ""
+
+#: .\appRecetario\templates\politica_privacidad.html:35
+msgid "Cookies"
+msgstr ""
+
+#: .\appRecetario\templates\politica_privacidad.html:37
+msgid ""
+"Utilizamos cookies para mejorar tu experiencia al navegar en nuestro sitio. "
+"Las cookies nos ayudan a personalizar el contenido, recordar tus "
+"preferencias y analizar el tráfico del sitio. Puedes desactivar las cookies "
+"en la configuración de tu navegador, pero esto podría afectar algunas "
+"funcionalidades del sitio."
+msgstr ""
+
+#: .\appRecetario\templates\politica_privacidad.html:39
+msgid "Seguridad de la información"
+msgstr ""
+
+#: .\appRecetario\templates\politica_privacidad.html:41
+msgid ""
+"Nos comprometemos a proteger tu información personal. Implementamos medidas "
+"de seguridad para evitar accesos no autorizados, pérdidas o alteraciones de "
+"datos."
+msgstr ""
+
+#: .\appRecetario\templates\politica_privacidad.html:43
+msgid "Tus derechos"
+msgstr ""
+
+#: .\appRecetario\templates\politica_privacidad.html:45
+msgid ""
+"Tienes derecho a acceder, corregir o eliminar tu información personal en "
+"cualquier momento. Si deseas ejercer estos derechos, contáctanos a través de "
+"nuestro formulario de contacto."
+msgstr ""
+
+#: .\appRecetario\templates\recetas\detail.html:9
+msgid "Detalles de la Receta"
+msgstr ""
+
+#: .\appRecetario\templates\recetas\detail.html:14
+msgid "Tipo de plato"
+msgstr ""
+
+#: .\appRecetario\templates\recetas\detail.html:15
+msgid "Descripción"
+msgstr ""
+
+#: .\appRecetario\templates\recetas\detail.html:22
+msgid "No hay ingredientes asociados a esta receta."
+msgstr ""
+
+#: .\appRecetario\templates\recetas\detail.html:26
+msgid "Proceso de Elaboración"
+msgstr ""
+
+#: .\appRecetario\templates\recetas\detail.html:33
+msgid "Volver a la lista de recetas"
+msgstr ""
+
+#: .\appRecetario\templates\recetas\list.html:9
+msgid "Recetas Disponibles"
+msgstr ""
+
+#: .\appRecetario\templates\recetas\list.html:17
+#: .\appRecetario\templates\tipos_plato\detail.html:23
+#: .\appRecetario\templates\tipos_plato\list.html:21
+msgid "Imagen no disponible"
+msgstr ""
+
+#: .\appRecetario\templates\recetas\list.html:21
+msgid "Tipo de Plato"
+msgstr ""
+
+#: .\appRecetario\templates\recetas\list.html:23
+msgid "Ver Detalles"
+msgstr ""
+
+#: .\appRecetario\templates\recetas\list.html:28
+msgid "Cargar más recetas"
+msgstr ""
+
+#: .\appRecetario\templates\recetas_por_ingrediente.html:5
+#: .\appRecetario\templates\recetas_por_ingrediente.html:12
+#, python-format
+msgid "Recetas con %(ingrediente.nombre)s"
+msgstr ""
+
+#: .\appRecetario\templates\recetas_por_ingrediente.html:28
+msgid "No hay recetas disponibles con este ingrediente."
+msgstr ""
+
+#: .\appRecetario\templates\terminos_condiciones.html:15
+msgid ""
+"Bienvenido a Recipes Store. Al utilizar nuestro sitio web para buscar, "
+"compartir y disfrutar recetas, aceptas los siguientes términos y "
+"condiciones. Por favor, léelos cuidadosamente antes de usar nuestros "
+"servicios."
+msgstr ""
+
+#: .\appRecetario\templates\terminos_condiciones.html:17
+msgid "Uso del sitio"
+msgstr ""
+
+#: .\appRecetario\templates\terminos_condiciones.html:19
+msgid ""
+"Recipes Store está diseñado para ayudarte a descubrir y compartir recetas. "
+"El contenido publicado es para uso personal y no comercial. Queda "
+"estrictamente prohibido reproducir, distribuir o modificar las recetas sin "
+"el consentimiento de sus respectivos autores."
+msgstr ""
+
+#: .\appRecetario\templates\terminos_condiciones.html:21
+msgid "Contenido generado por usuarios"
+msgstr ""
+
+#: .\appRecetario\templates\terminos_condiciones.html:23
+msgid ""
+"Los usuarios que contribuyan con sus propias recetas o comentarios son "
+"responsables de garantizar que el contenido sea original y no infrinja "
+"derechos de terceros. Recipes Store se reserva el derecho de eliminar "
+"cualquier contenido que viole estas condiciones."
+msgstr ""
+
+#: .\appRecetario\templates\terminos_condiciones.html:25
+msgid "Propiedad intelectual"
+msgstr ""
+
+#: .\appRecetario\templates\terminos_condiciones.html:27
+msgid ""
+"Todas las imágenes, recetas, diseño y código del sitio son propiedad de "
+"Recipes Store o de sus respectivos autores. Cualquier uso no autorizado del "
+"contenido puede resultar en acciones legales."
+msgstr ""
+
+#: .\appRecetario\templates\terminos_condiciones.html:29
+msgid "Exclusión de responsabilidad"
+msgstr ""
+
+#: .\appRecetario\templates\terminos_condiciones.html:31
+msgid ""
+"Las recetas y la información proporcionada en Recipes Store son para fines "
+"informativos. No garantizamos resultados específicos ni nos hacemos "
+"responsables por errores en las recetas o cualquier daño causado por su uso."
+msgstr ""
+
+#: .\appRecetario\templates\terminos_condiciones.html:33
+msgid "Modificaciones de los términos"
+msgstr ""
+
+#: .\appRecetario\templates\terminos_condiciones.html:35
+msgid ""
+"Recipes Store se reserva el derecho de actualizar estos términos y "
+"condiciones en cualquier momento. Las modificaciones serán efectivas a "
+"partir de su publicación en esta página."
+msgstr ""
+
+#: .\appRecetario\templates\tipos_plato\detail.html:9
+msgid "Detalles del Tipo de Plato"
+msgstr ""
+
+#: .\appRecetario\templates\tipos_plato\detail.html:15
+msgid "Recetas de este Tipo de Plato"
+msgstr ""
+
+#: .\appRecetario\templates\tipos_plato\detail.html:32
+msgid "No hay recetas disponibles para este tipo de plato."
+msgstr ""
+
+#: .\appRecetario\templates\tipos_plato\detail.html:36
+msgid "Volver a la lista de Tipos de Plato"
+msgstr ""
+
+#: .\appRecetario\templates\tipos_plato\list.html:5
+msgid "Tipos de Plato"
+msgstr ""
+
+#: .\appRecetario\templates\tipos_plato\list.html:12
+msgid "¿Qué cocinar hoy?"
+msgstr ""
+
+#: .\appRecetario\templates\tipos_plato\list.html:32
+msgid "Cargar más tipos de plato"
+msgstr ""
+
+#: .\appRecetario\templates\users\login.html:12
+#: .\appRecetario\templates\users\register.html:10
+msgid "Nombre de Usuario:"
+msgstr ""
+
+#: .\appRecetario\templates\users\login.html:13
+msgid "Introduce tu nombre de usuario"
+msgstr ""
+
+#: .\appRecetario\templates\users\login.html:16
+#: .\appRecetario\templates\users\register.html:18
+msgid "Contraseña:"
+msgstr ""
+
+#: .\appRecetario\templates\users\login.html:17
+msgid "Introduce tu contraseña"
+msgstr ""
+
+#: .\appRecetario\templates\users\login.html:22
+msgid "¿No tienes cuenta?"
+msgstr ""
+
+#: .\appRecetario\templates\users\login.html:22
+msgid "Regístrate aquí"
+msgstr ""
+
+#: .\appRecetario\templates\users\register.html:6
+msgid "Registro"
+msgstr ""
+
+#: .\appRecetario\templates\users\register.html:14
+msgid "Correo Electrónico:"
+msgstr ""
+
+#: .\appRecetario\templates\users\register.html:22
+msgid "Confirmar Contraseña:"
+msgstr ""
+
+#: .\appRecetario\templates\users\register.html:28
+msgid "¿Ya tienes una cuenta?"
+msgstr ""
