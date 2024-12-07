@@ -1,11 +1,14 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load i18n %}
+{% load compress %}
 
 {% block titulo %}{% trans "Ingredientes Disponibles" %}{% endblock %}
 
 {% block extrastyle %}
+{% compress css %}
 <link rel="stylesheet" href="{% static 'styleIngredientes.css' %}">
+{% endcompress %}
 {% endblock %}
 
 {% block contenido %}

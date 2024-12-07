@@ -1,11 +1,16 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load i18n %}
+{% load compress %}
 
-{% block titulo %}{% blocktrans %}Recetas con {{ ingrediente.nombre }}{% endblocktrans %}{% endblock %}
+{% block titulo %}
+{% blocktrans %}Recetas con {{ ingrediente.nombre }}{% endblocktrans %}
+{% endblock %}
 
 {% block extrastyle %}
+{% compress css %}
 <link rel="stylesheet" href="{% static 'styleRecetasPorIngrediente.css' %}">
+{% endcompress %}
 {% endblock %}
 
 {% block contenido %}
@@ -29,4 +34,3 @@
     {% endif %}
 </div>
 {% endblock %}
-

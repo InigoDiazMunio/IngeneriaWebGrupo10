@@ -1,9 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load i18n %}
+{% load compress %}
 
 {% block extrastyle %}
+{% compress css %}
 <link rel="stylesheet" href="{% static 'styleDetalles.css' %}">
+{% endcompress %}
 {% endblock %}
 
 {% block titulo %}{% trans "Detalles de la Receta" %}{% endblock %}

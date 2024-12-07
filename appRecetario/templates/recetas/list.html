@@ -1,8 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load i18n %}
+{% load compress %}
+
 {% block extrastyle %}
+{% compress css %}
 <link rel="stylesheet" href="{% static 'styleRecetas.css' %}">
+{% endcompress %}
 {% endblock %}
 
 {% block contenido %}
@@ -28,3 +32,4 @@
 <button id="cargar-mas-recetas" data-offset="10" class="btn-recipe">{% trans "Cargar más recetas" %}</button>
 
 {% endblock %}
+
