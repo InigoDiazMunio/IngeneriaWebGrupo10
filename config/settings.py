@@ -97,3 +97,11 @@ STATICFILES_FINDERS = [
 
 COMPRESS_ENABLED = True
 COMPRESS_OFFLINE = True
+
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'LOCATION': 'unique-snowflake',
+    }
+}

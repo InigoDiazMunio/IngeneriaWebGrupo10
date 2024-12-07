@@ -10,6 +10,10 @@ from django.shortcuts import render
 from .models import TipoPlato, Receta
 from django.http import JsonResponse
 from .forms import RecetaForm, IngredienteForm, TipoPlatoForm
+from django.views.decorators.cache import cache_page
+from django.utils.decorators import method_decorator
+from django.views.generic import ListView, DetailView
+
 
 
 def index(request):
@@ -235,3 +239,17 @@ def add_tipo_plato(request):
     else:
         form = TipoPlatoForm()
     return render(request, 'tipos_plato/form.html', {'form': form})
+
+
+
+# Vista basada en funciones para listar recetas
+@cache_page(60 * 10)  # Cachea esta vista durante 10 minutos
+def lista_recetas(request):
+    recetas = Receta.objects.all()
+    return render(request, 'recetas/list.html', {'recetas': recetas})
+
+# Vista basada en funciones para detalles de recetas
+@cache_page(60 * 15)  # Cachea esta vista durante 15 minutos
+def detalle_receta(request, receta_id):
+    receta = get_object_or_404(Receta, id=receta_id)
+    return render(request, 'recetas/detalle.html', {'receta': receta})
