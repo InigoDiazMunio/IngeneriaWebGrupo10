@@ -253,3 +253,9 @@ def lista_recetas(request):
 def detalle_receta(request, receta_id):
     receta = get_object_or_404(Receta, id=receta_id)
     return render(request, 'recetas/detalle.html', {'receta': receta})
+from django.http import HttpResponse
+from django.utils.translation import get_language
+
+def my_view(request):
+    current_language = get_language()
+    return HttpResponse(f"Idioma actual: {current_language}")

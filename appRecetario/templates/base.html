@@ -46,7 +46,7 @@
 
             <!-- Selector de idioma -->
             <div class="language-switcher">
-                <form action="{% url 'set_language' %}" method="post">
+                <form action="/i18n/setlang/" method="post">
                     {% csrf_token %}
                     <select name="language" onchange="this.form.submit()">
                         {% get_current_language as LANGUAGE_CODE %}
@@ -65,7 +65,7 @@
     <!-- Contenido principal -->
     <main class="main-content container">
         {% block contenido %}
-        <h2>{% trans "Idioma actual" %}: {{ idioma_actual }}</h2>
+            <h2>{% trans "Idioma actual" %}: {{ idioma_actual }}</h2>
         {% endblock %}
     </main>
 
@@ -82,12 +82,12 @@
 
     <!-- Bloque de scripts adicionales -->
     {% block extrascript %}
-    <script src="{% static 'js/scripts.js' %}"></script>
-    <script>
-        // Actualizar el año en el pie de página
-        const fechaActual = new Date();
-        document.getElementById("anyoMostrado").innerText = fechaActual.getFullYear();
-    </script>
+        <script src="{% static 'js/scripts.js' %}"></script>
+        <script>
+            // Actualizar el año en el pie de página
+            const fechaActual = new Date();
+            document.getElementById("anyoMostrado").innerText = fechaActual.getFullYear();
+        </script>
     {% endblock %}
 </body>
 </html>
