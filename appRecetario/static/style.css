@@ -509,3 +509,124 @@ body {
 .btn-volver:hover {
     background-color: #004d40 !important; /* Verde más oscuro al hacer hover */
 }
+/* Cabecera */
+.main-header {
+    background-color: #e0f7fa; 
+    border-bottom: 1px solid #b2dfdb;
+    padding: 10px 0;
+}
+
+.main-header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 100%; /* Usa todo el ancho disponible */
+    margin: 0 auto;
+    padding: 0 10px;
+    gap: 10px; /* Espacio uniforme entre bloques */
+    flex-wrap: wrap; /* Permite que los elementos se ajusten si no hay espacio */
+    overflow: hidden; /* Evita que los elementos se desborden */
+}
+
+/* Logo */
+.main-header .logo {
+    flex-shrink: 0; /* Evita que el logo se reduzca */
+    margin-right: 10px;
+}
+
+.main-header .logo h1 {
+    margin: 0;
+    font-size: 1.2em; /* Reduce el tamaño del texto del logo */
+}
+
+.main-header .logo h1 a {
+    text-decoration: none;
+    color: #004d40; 
+    white-space: nowrap; /* Evita que el logo se divida */
+}
+
+/* Menú de Navegación */
+.main-header .main-nav {
+    flex: 1; /* El menú ocupa el espacio sobrante */
+    text-align: center;
+}
+
+.main-header .main-nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se ajusten en varias filas si es necesario */
+    gap: 10px; /* Espacio entre enlaces */
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+}
+
+.main-header .main-nav ul li {
+    white-space: nowrap; /* Evita que los enlaces se dividan */
+}
+
+.main-header .main-nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 0.9em; /* Reduce ligeramente el tamaño de los enlaces */
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.main-header .main-nav ul li a:hover {
+    color: #017143;
+}
+
+/* Botones de Autenticación */
+.auth-buttons {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0; /* Evita que los botones se reduzcan */
+}
+
+.auth-buttons .btn-login,
+.auth-buttons .btn-signup {
+    padding: 8px 10px; /* Reduce el tamaño de los botones */
+    font-size: 0.8em; /* Reduce el texto de los botones */
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    background-color: #00796b;
+}
+
+.auth-buttons .btn-login:hover,
+.auth-buttons .btn-signup:hover {
+    background-color: #004d40;
+}
+
+/* Selector de Idioma */
+.language-selector {
+    margin-left: 10px;
+    flex-shrink: 0; /* Evita que el selector de idioma se reduzca */
+}
+
+/* Diseño Responsive */
+@media (max-width: 768px) {
+    .main-header .container {
+        flex-wrap: wrap; /* Permite que los elementos se apilen en pantallas pequeñas */
+    }
+
+    .main-header .main-nav {
+        order: 2; /* Mueve el menú debajo del logo en pantallas pequeñas */
+        flex: 1;
+    }
+
+    .auth-buttons {
+        order: 3; /* Mueve los botones debajo del menú */
+        justify-content: center;
+        width: 100%;
+    }
+
+    .language-selector {
+        order: 4; /* Mueve el selector al final */
+        margin-top: 10px;
+        text-align: center;
+        width: 100%;
+    }
+}
