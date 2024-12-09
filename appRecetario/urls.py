@@ -30,6 +30,7 @@ urlpatterns = i18n_patterns(
     path('ingredientes/agregar/', add_ingrediente, name='add_ingrediente'),
     path('tipos-plato/agregar/', add_tipo_plato, name='add_tipo_plato'),
     path('admin/', admin.site.urls),
+    path('test-translation/', views.test_translation, name='test_translation'),  # Nueva ruta añadida
 )
 
 # Agregar el manejo del cambio de idioma fuera de i18n_patterns

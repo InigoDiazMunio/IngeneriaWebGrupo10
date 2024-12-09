@@ -66,7 +66,7 @@ DATABASES = {
 }
 
 # Configuración de idiomas
-LANGUAGE_CODE = 'es'
+LANGUAGE_CODE = 'en'  
 LANGUAGES = [
     ('en', _('English')),
     ('es', _('Español')),
