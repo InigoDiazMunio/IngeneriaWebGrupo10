@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
-    {% load i18n %} <!-- Cargar el módulo de traducción -->
+    {% load i18n %}
     <!-- Archivo principal de estilos -->
     <link rel="stylesheet" href="{% static 'style.css' %}">
     {% block extrastyle %}{% endblock %}
@@ -65,6 +65,7 @@
     <!-- Contenido principal -->
     <main class="main-content container">
         {% block contenido %}
+        <h2>{% trans "Idioma actual" %}: {{ idioma_actual }}</h2>
         {% endblock %}
     </main>
 

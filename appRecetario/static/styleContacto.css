@@ -1,3 +1,9 @@
+/* Definición de variables de color */
+:root {
+    --verde-base: #004d40; /* Color verde oscuro base */
+    --verde-hover: #003824; /* Color verde más oscuro para hover */
+}
+
 /* Contenedor principal del formulario */
 .contacto-container {
     max-width: 600px;
@@ -12,7 +18,7 @@
 /* Título del formulario */
 .contacto-title {
     font-size: 2em;
-    color: #017143;
+    color: var(--verde-base);
     margin-bottom: 10px;
     font-weight: bold;
 }
@@ -39,7 +45,7 @@
 
 .contacto-form input:focus,
 .contacto-form textarea:focus {
-    border-color: #017143;
+    border-color: var(--verde-base);
     outline: none;
 }
 
@@ -47,7 +53,7 @@
 .contacto-form button {
     width: 100%;
     padding: 15px;
-    background-color: #017143;
+    background-color: var(--verde-base); /* Tono verde base */
     color: white;
     border: none;
     border-radius: 8px;
@@ -58,7 +64,7 @@
 }
 
 .contacto-form button:hover {
-    background-color: #016836;
+    background-color: var(--verde-hover); /* Tono verde más oscuro */
     transform: scale(1.02);
 }
 
@@ -67,7 +73,7 @@
     display: inline-block;
     margin-top: 20px;
     padding: 15px;
-    background-color: #017143;
+    background-color: var(--verde-base); /* Tono verde base */
     color: white;
     text-decoration: none;
     border-radius: 8px;
@@ -78,6 +84,6 @@
 }
 
 .btn-volver:hover {
-    background-color: #016836;
+    background-color: var(--verde-hover); /* Tono verde más oscuro */
     transform: scale(1.02);
 }

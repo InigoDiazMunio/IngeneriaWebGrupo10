@@ -7,6 +7,7 @@ from django.conf.urls.i18n import i18n_patterns
 
 from .views import add_receta, add_ingrediente, add_tipo_plato
 
+# Rutas envueltas en i18n_patterns para multilingüismo
 urlpatterns = i18n_patterns(
     path('', views.index, name='index'),
     path('recetas/', views.list_recetas, name='list_recetas'),
@@ -22,20 +23,18 @@ urlpatterns = i18n_patterns(
     path('register/', views.register, name='register'),
     path('login/', views.login_view, name='login'),
     path('logout/', views.logout_view, name='logout'),
-    path('ingredientes/<int:pk>/', views.detail_ingrediente, name='detail_ingrediente'),
-    path('admin/', admin.site.urls),
     path('ingredientes/cargar-mas/', views.cargar_mas_ingredientes, name='cargar_mas_ingredientes'),
     path('recetas/cargar-mas/', views.cargar_mas_recetas, name='cargar_mas_recetas'),
     path('tipos-plato/cargar-mas/', views.cargar_mas_tipos_plato, name='cargar_mas_tipos_plato'),
     path('recetas/agregar/', add_receta, name='add_receta'),
     path('ingredientes/agregar/', add_ingrediente, name='add_ingrediente'),
     path('tipos-plato/agregar/', add_tipo_plato, name='add_tipo_plato'),
-    path('set_language/', include('django.conf.urls.i18n')),  # Asegúrate de incluirlo
+    path('admin/', admin.site.urls),
 )
 
-# Agrega aquí el include de i18n para que las URLs de traducción funcionen.
+# Agregar el manejo del cambio de idioma fuera de i18n_patterns
 urlpatterns += [
-    path('i18n/', include('django.conf.urls.i18n')),
+    path('i18n/', include('django.conf.urls.i18n')),  # Ruta para cambiar el idioma
 ]
 
 # Configuración para archivos estáticos y de medios
