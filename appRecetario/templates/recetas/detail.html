@@ -12,27 +12,41 @@
 {% block titulo %}{% trans "Detalles de la Receta" %}{% endblock %}
 
 {% block contenido %}
-<h2>{{ receta.nombre }}</h2>
+<div class="recipe-panels">
+    <!-- Panel Izquierdo -->
+    <div class="left-panel">
+        <h1 class="recipe-title">{{ receta.nombre }}</h1>
+        <p><strong>{% trans "Tipo de plato" %}:</strong> {{ receta.tipo_plato.nombre }}</p>
+        <p><strong>{% trans "Descripción" %}:</strong> {{ receta.descripcion }}</p>
 
-<p><strong>{% trans "Tipo de plato" %}:</strong> {{ receta.tipo_plato.nombre }}</p>
-<p><strong>{% trans "Descripción" %}:</strong> {{ receta.descripcion }}</p>
+        <h2>{% trans "Ingredientes" %}</h2>
+        <div class="ingredients-list">
+            {% for ingrediente in receta.ingredientes.all %}
+            <div class="ingredient-item">
+                <span class="ingredient-name">{{ ingrediente.nombre }}</span>
+                <span class="ingredient-category">({{ ingrediente.categoria }})</span>
+            </div>
+            {% empty %}
+            <p>{% trans "No hay ingredientes asociados a esta receta." %}</p>
+            {% endfor %}
+        </div>
+    </div>
 
-<h3>{% trans "Ingredientes" %}:</h3>
-<ul class="ingredient-list">
-    {% for ingrediente in receta.ingredientes.all %}
-    <li>{{ ingrediente.nombre }} ({{ ingrediente.categoria }})</li>
-    {% empty %}
-    <li>{% trans "No hay ingredientes asociados a esta receta." %}</li>
-    {% endfor %}
-</ul>
+    <div class="recipe-steps">
+        <h2>{% trans "Proceso de Elaboración" %}</h2>
+        <div class="step-list">
+            {% for paragraph in proceso_parrafos %}
+            <div class="step-item">
+                <div class="step-icon">•</div> <!-- Usamos un punto como separador -->
+                <div class="step-text">{{ paragraph }}</div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    
 
-<h3>{% trans "Proceso de Elaboración" %}:</h3>
-<div class="recipe-process">
-    {% for paragraph in proceso_parrafos %}
-    <p>{{ paragraph }}</p>
-    {% endfor %}
+<div class="recipe-buttons">
+    <a href="{% url 'list_recetas' %}" class="btn">{% trans "Volver a la lista de recetas" %}</a>
+    <a href="{% url 'index' %}" class="btn">{% trans "Volver al Inicio" %}</a>
 </div>
-
-<a href="{% url 'list_recetas' %}" class="btn">{% trans "Volver a la lista de recetas" %}</a>
-<a href="{% url 'index' %}" class="btn">{% trans "Volver al Inicio" %}</a>
 {% endblock %}

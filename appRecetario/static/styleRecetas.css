@@ -1,90 +1,182 @@
-/* Estilo para el contenedor de las recetas */
-.recipes-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    margin: 40px auto;
+/* Contenedor de los Paneles */
+.recipe-panels {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Proporciones: 1 parte izquierda, 2 partes derecha */
+    gap: 30px; /* Espaciado entre los paneles */
+    margin: 30px auto;
     max-width: 1200px;
 }
 
-/* Tarjeta de receta */
-.recipe-card {
-    background-color: #fff;
+/* Panel Izquierdo */
+.left-panel {
+    background: #e0f7fa; /* Fondo claro */
+    padding: 20px;
+    border: 2px solid #b2dfdb; /* Borde distintivo */
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    width: 300px;
-    transition: transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombras para destacar */
 }
 
-.recipe-card:hover {
-    transform: scale(1.05);
-}
-
-/* Imagen de la receta */
-.recipe-image {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-bottom: 2px solid #006b5f;
-}
-
-/* Información de la receta */
-.recipe-info {
-    padding: 15px;
-    text-align: center;
-}
-
-.recipe-title {
-    font-size: 1.5em;
+.left-panel h1 {
+    font-size: 2em;
     color: #006b5f;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
-.recipe-type,
-.recipe-ingredients {
-    font-size: 0.9em;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-.btn-recipe {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #006b5f;
-    color: white;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-}
-
-.btn-recipe:hover {
-    background-color: #004f47;
-}
-
-ul {
-    list-style-type: none; 
-    padding: 0; 
-    margin: 0; 
-}
-
-li {
- 
-    margin-bottom: 5px;
-}
 .ingredient-list {
-    list-style: none; /* Elimina los puntos de la lista */
-    padding: 0; /* Quita el margen izquierdo */
+    list-style: none; /* Elimina los puntos */
+    padding: 0;
 }
 
 .ingredient-list li {
-    margin-bottom: 10px; /* Espaciado entre ingredientes */
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    color: #333;
+}
+
+/* Panel Derecho */
+.right-panel {
+    background: #f9fbe7; /* Fondo claro */
+    padding: 20px;
+    border: 2px solid #c8e6c9; /* Borde distintivo */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombras para destacar */
+}
+
+.right-panel h2 {
+    font-size: 1.8em;
+    color: #827717;
+    margin-bottom: 15px;
 }
 
 .recipe-process p {
-    margin-bottom: px; /* Espaciado entre párrafos */
-    line-height: 1.6; /* Mejora la legibilidad */
+    margin-bottom: 15px;
+    line-height: 1.6;
+    font-size: 1.1em;
+    color: #333;
 }
 
+/* Botones */
+.recipe-buttons {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Botones de navegación de la receta */
+.recipe-buttons .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color:  #004d40; 
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin: 5px; 
+}
+
+.recipe-buttons .btn:hover {
+    background-color: #004d40; 
+}
+
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .recipe-panels {
+        grid-template-columns: 1fr; /* Un panel encima del otro */
+    }
+
+    .left-panel,
+    .right-panel {
+        margin-bottom: 20px; /* Espaciado entre paneles */
+    }
+}
+
+/* Lista de Ingredientes */
+.ingredients-list {
+    display: flex;
+    flex-direction: column; /* Alinea los ingredientes verticalmente */
+    gap: 10px; /* Espaciado entre los ingredientes */
+    padding: 0;
+    margin: 20px 0;
+}
+
+.ingredient-item {
+    display: flex;
+    justify-content: space-between; /* Alinea el nombre y la categoría */
+    padding: 8px 12px;
+    background: #f1f8e9; /* Fondo claro */
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombras ligeras */
+    font-size: 1.1em;
+}
+
+.ingredient-name {
+    font-weight: bold;
+    color: #333;
+}
+
+.ingredient-category {
+    font-style: italic;
+    color: #777;
+}
+
+/* Contenedor de los pasos */
+.recipe-steps {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.recipe-steps h2 {
+    font-size: 2em;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Lista de pasos */
+.step-list {
+    display: flex;
+    flex-direction: column; /* Alineación vertical */
+    gap: 15px; /* Espaciado entre pasos */
+}
+
+/* Estilo de cada paso */
+.step-item {
+    display: flex;
+    align-items: center; /* Alinea ícono y texto verticalmente */
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra para destacar */
+    transition: transform 0.3s ease;
+}
+
+.step-item:hover {
+    transform: translateY(-5px); /* Elevación al pasar el cursor */
+}
+
+/* Estilo del ícono del paso */
+.step-icon {
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffe082; /* Fondo amarillo */
+    color: #333;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 50%; /* Hace el contenedor circular */
+    margin-right: 15px; /* Espaciado entre el ícono y el texto */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Texto del paso */
+.step-text {
+    font-size: 1.1em;
+    color: #555;
+    line-height: 1.6;
+}

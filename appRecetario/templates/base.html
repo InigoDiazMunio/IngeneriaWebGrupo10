@@ -15,9 +15,12 @@
     <!-- Encabezado -->
     <header class="main-header">
         <div class="container">
+            <!-- Logo -->
             <div class="logo">
                 <h1><a href="{% url 'index' %}">{% trans "Recipes Store" %}</a></h1>
             </div>
+
+            <!-- Navegación principal -->
             <nav class="main-nav">
                 <ul>
                     <li><a href="{% url 'list_recetas' %}">{% trans "Recetas" %}</a></li>
@@ -29,6 +32,8 @@
                     <li><a href="{% url 'add_tipo_plato' %}">{% trans "Agregar Tipo de Plato" %}</a></li>
                 </ul>
             </nav>
+
+            <!-- Botones de autenticación -->
             <div class="auth-buttons">
                 {% if user.is_authenticated %}
                     <span>{% trans "Bienvenido," %} {{ user.username }}</span>
@@ -38,6 +43,8 @@
                     <a href="{% url 'register' %}" class="btn-signup">{% trans "Registrarse" %}</a>
                 {% endif %}
             </div>
+
+            <!-- Selector de idioma -->
             <div class="language-switcher">
                 <form action="{% url 'set_language' %}" method="post">
                     {% csrf_token %}
@@ -52,13 +59,11 @@
                     </select>
                 </form>
             </div>
-
-            
         </div>
     </header>
 
     <!-- Contenido principal -->
-    <main class="main-content">
+    <main class="main-content container">
         {% block contenido %}
         {% endblock %}
     </main>
@@ -66,7 +71,7 @@
     <!-- Pie de página -->
     <footer class="main-footer">
         <div class="container">
-            <p>&copy; <span id="anyoMostrado"></span> {% trans "Recipes Store" %}</p>
+            <p>&copy; <span id="anyoMostrado"></span> {% trans "Recipes Store" %}. {% trans "Todos los derechos reservados." %}</p>
             <ul>
                 <li><a href="{% url 'politica_privacidad' %}">{% trans "Política de Privacidad" %}</a></li>
                 <li><a href="{% url 'terminos_condiciones' %}">{% trans "Términos y Condiciones" %}</a></li>
