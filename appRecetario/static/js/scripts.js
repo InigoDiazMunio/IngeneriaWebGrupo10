@@ -8,7 +8,12 @@ document.addEventListener("DOMContentLoaded", () => {
             const offset = parseInt(cargarMasTiposPlatoBtn.getAttribute("data-offset"));
 
             fetch(`/tipos-plato/cargar-mas/?offset=${offset}`)
-                .then(response => response.json())
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Error en la respuesta del servidor");
+                    }
+                    return response.json();
+                })
                 .then(data => {
                     data.tipos_plato.forEach(item => {
                         const cardId = `tipo-plato-${item.id}`;
@@ -47,7 +52,12 @@ document.addEventListener("DOMContentLoaded", () => {
             const offset = parseInt(cargarMasRecetasBtn.getAttribute("data-offset"));
 
             fetch(`/recetas/cargar-mas/?offset=${offset}`)
-                .then(response => response.json())
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Error en la respuesta del servidor");
+                    }
+                    return response.json();
+                })
                 .then(data => {
                     data.recetas.forEach(item => {
                         const cardId = `recipe-${item.id}`;
@@ -73,6 +83,51 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
                 })
                 .catch(error => console.error("Error al cargar más recetas:", error));
+        });
+    }
+
+    // Cargar más ingredientes
+    const cargarMasIngredientesBtn = document.getElementById("cargar-mas-ingredientes");
+    const ingredientsContainer = document.getElementById("ingredients-container");
+
+    if (cargarMasIngredientesBtn) {
+        cargarMasIngredientesBtn.addEventListener("click", () => {
+            const offset = parseInt(cargarMasIngredientesBtn.getAttribute("data-offset"));
+
+            fetch(`/ingredientes/cargar-mas/?offset=${offset}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Error en la respuesta del servidor");
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    data.ingredientes.forEach(item => {
+                        const cardId = `ingredient-${item.id}`;
+                        if (!document.getElementById(cardId)) {
+                            const card = `
+                                <div id="ingredient-${item.id}" class="ingredient-card">
+                                    <img src="${item.imagen || '/static/images/default.png'}" alt="${item.nombre}" class="ingredient-image">
+                                    <div class="ingredient-text">
+                                        <h3 class="ingredient-title">${item.nombre}</h3>
+                                        <p class="ingredient-category">Categoría: ${item.categoria}</p>
+                                        <a href="/ingredientes/${item.id}/recetas/" class="btn-ingrediente">Ver Recetas</a>
+                                    </div>
+                                </div>
+                            `;
+                            ingredientsContainer.insertAdjacentHTML("beforeend", card);
+                        }
+                    });
+
+                    // Actualiza el offset en el botón
+                    cargarMasIngredientesBtn.setAttribute("data-offset", offset + data.ingredientes.length);
+
+                    // Oculta el botón si no hay más ingredientes
+                    if (data.ingredientes.length < 10) {
+                        cargarMasIngredientesBtn.style.display = "none";
+                    }
+                })
+                .catch(error => console.error("Error al cargar más ingredientes:", error));
         });
     }
 });
